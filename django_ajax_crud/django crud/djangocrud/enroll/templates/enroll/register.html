@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swan School | Teacher Registration</title>
+    <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'enroll/css/style.css' %}" />
+    {% endcomment %}
+  </head>
+  <body>
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h2 class="text-center alert alert-danger">
+        Teacher Registration
+      </h2>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4 class="text-center alert alert-info">
+            Enter Your Details here
+          </h4>
+          <form action="" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-warning">submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'enroll/js/propper.js' %}"></script>
+    <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
+    {% comment %} {% include "enroll/ajax.html" %} {% endcomment %}
+  </body>
+</html>

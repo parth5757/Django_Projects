@@ -1,0 +1,12 @@
+asgiref==3.7.2
+backports.zoneinfo==0.2.1
+Django==4.2.9
+django-simple-math-captcha==2.0.1
+evdev==1.6.1
+keyboard==0.13.5
+pynput==1.7.6
+pyperclip==1.8.2
+python-xlib==0.33
+six==1.16.0
+sqlparse==0.4.4
+typing-extensions==4.9.0
