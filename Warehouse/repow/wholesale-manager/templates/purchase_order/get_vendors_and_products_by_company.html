@@ -1,0 +1,11 @@
+{% if company_vendors %}
+    {% for company_vendor in company_vendors %}
+        <option value="{{company_vendor.id}}">{{company_vendor.first_name}}</option>
+    {% endfor %}
+{% endif %}
+
+{% if company_products %}
+    {% for company_product in company_products %}
+        <option value="{{company_product.id}}">{{company_product.name}}</option>
+    {% endfor %}
+{% endif %}

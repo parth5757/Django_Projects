@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block title %}
+List|Sales Route
+{% endblock title %}
+
+{% block style %}
+<style>
+    .table-responsive {
+        display: inline-table;
+        width: 100%;
+    }
+</style>
+{% endblock style %}
+
+{% block bodycontent %}
+
+<div class="users-list-filter px-2">
+    <div class="row border rounded py-2 mb-2 mx-n2">
+      <div class="col-12 col-sm-6 col-lg-3">
+        <label for="salesroute-list-salesrep">Sales Rep</label>
+        <fieldset class="form-group">
+          <select id="salesroute-list-salesrep" class="form-control">
+            <option value="">All</option>
+                {% for data in sales_rep %}
+                <option value="{{data.username}}">{{data.username|title}}</option>
+                {% endfor %}
+            </select>
+        </fieldset>
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-3">
+        <label for="status-list-salesroute">Status</label>
+        <fieldset class="form-group">
+          <select id="status-list-salesroute" class="form-control">
+            <option value="">All</option>
+                {% for data in status_choices %}
+                <option value="{{data.0}}">{{data.1}}</option>
+                {% endfor %}
+            </select>
+        </fieldset>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-2">
+    </div>
+    
+    <div class="col-12 col-sm-6 col-lg-1 mt-1 d-flex align-items-center">
+        <button type="reset" class="btn btn-primary btn-block salesroute-list-clear glow mb-0">Clear</button>
+    </div>
+</div>
+
+
+<section id="file-export">
+  <div class="row">
+      <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="d-flex flex-sm-row flex-column justify-content-between">
+                <h4 class="card-title align-self-center">Sales Route List</h4>
+                <a href="{% url 'customer:sales_route_create' %}" class="btn btn-primary ml-sm-1">Add</a>
+              </div>
+            </div>
+              <div class="card-content ">
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-striped table-bordered file-export" id="table">
+                              <thead>
+                                  <tr>
+                                    <th>Sr no</th>
+                                    <th>Route Name</th>
+                                    <th>Sales Rep</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Actions</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
+
+  {% block script %}
+    <script>
+
+        $('#salesroute-list-salesrep').select2({
+            width: "100%",
+          });
+        $('#status-list-salesroute').select2({
+            width: "100%",
+          });
+    
+    //this for above dropdown filteration
+          function set_filters(){
+            var data = {}
+            data["sales_rep"] = $("#salesroute-list-salesrep").val()
+            data["status"] = $("#status-list-salesroute").val()
+            return data
+          }
+        //end
+
+        function initialize_datatable(){
+            
+        $('#table').DataTable({
+
+            language: {
+                searchPlaceholder: "Route Name"
+            },
+
+            columnDefs: [{
+                orderable: false,
+                targets: -1
+            },],
+
+            // Ajax for pagination
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '{% url "customer:sales_route_list_ajax" %}',
+                type: 'get',
+                data: set_filters(),  // this line also in dropdown filter
+            },
+            columns: [
+                // data: json key from prepare_results, name: model field name
+                { data: 'id', name: 'id' },
+                { data: 'route_name', name: 'route_name' },
+                { data: 'sales_rep', name: 'sales_rep' },
+                { data: 'status', name: 'status' },
+                { data: 'actions', name: 'actions' }
+            ],
+            rowCallback: function (nRow, aData, iDisplayIndex) {
+                var oSettings = this.fnSettings();
+                $("td:first", nRow).html(oSettings._iDisplayStart + iDisplayIndex + 1);
+                return nRow;
+            },
+        });
+    }
+
+        //this for above dropdown filteration
+        initialize_datatable();
+
+        $("#salesroute-list-salesrep").on("change", function () {
+        // t.search($(this).val()).draw();
+        $("#table").DataTable().destroy();
+        initialize_datatable()
+        });
+
+        $("#status-list-salesroute").on("change", function () {
+            // t.search($(this).val()).draw();
+            $("#table").DataTable().destroy();
+            initialize_datatable()
+            });
+
+        $(".salesroute-list-clear").on("click",function(){
+        $("#salesroute-list-salesrep").val(null).trigger('change');
+        $("#status-list-salesroute").val(null).trigger('change');
+        $("#table").DataTable().destroy();
+        //$("#users-list-role option[value='']").attr("selected", "selected")
+        initialize_datatable()
+        })
+    //end
+    </script>
+    <script>
+      
+      $(document).on('click', '.ajax-delete-btn' , function (e){
+        var id = $(this).data("id")
+        var name = $(this).data("title")
+        if(name == "None"){
+            name = ""
+        }
+        var url = $(this).data("url")
+        var delete_ele = $(this)
+
+
+        Swal.fire({
+            html: `Are you sure you want to delete <b>${name}</b> ?`,
+            icon: 'question',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonColor: "#7442DB",
+        }).then((result) => {
+            
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        "id": id,
+                        "csrfmiddlewaretoken": '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                      $('#table').DataTable().ajax.reload(null, false);
+                      if (data["message"]){
+                        $.toast({
+                            text: data.message,
+                            position: 'bottom-right',
+                            stack: false,
+                            icon: 'success',                    
+                        })
+                    }
+                  }    
+                });
+            }
+        })
+    })
+
+    </script>
+
+{% endblock script %}
+

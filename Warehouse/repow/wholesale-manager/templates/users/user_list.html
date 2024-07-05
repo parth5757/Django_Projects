@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock title %}
+{% block bodycontent %}
+
+<div class="users-list-filter px-2">
+    <div class="row border rounded py-2 mb-2 mx-n2">
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <label for="users-list-role">Role</label>
+        <fieldset class="form-group">
+          <select id="users-list-role" class="form-control">
+            <option value="">All</option>
+
+            {% if request.user.role == "admin" or request.user.role == "super admin" %}
+            <option value="super admin">Super Admin</option>
+            {% endif %}
+
+            <option value="company admin">Company Admin</option>
+            <option value="sales representative">Sales Representative</option>
+            <option value="driver">Driver</option>
+          </select>
+        </fieldset>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        {% if request.user.role != "company admin" %}
+        <label for="users-list-company">Company</label>
+        <fieldset class="form-group">
+          <select id="users-list-company" class="form-control">
+            <option value="">All</option>
+            {% comment %} <option value="Active">Active</option> {% endcomment %}
+            {% for company in companies %}
+            <option value="{{company.id}}">{{company.company_name|title}}</option>
+            {% endfor %}
+          </select>
+        </fieldset>
+        {% endif %}
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+      </div>
+      <div class="col-12 col-sm-6 col-lg-2">
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-1 d-flex align-items-center">
+        <button type="reset" class="btn btn-primary btn-block users-list-clear glow mb-0">Clear</button>
+      </div>
+    </div>
+</div>
+
+<section id="extended">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex flex-sm-row flex-column justify-content-between">
+            <h4 class="card-title">Users</h4>
+            <a href="{% url 'users:user_create' %}"><button type="button" class="btn btn-primary">Add</button></a>
+          </div>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-body">
+            <div class="">
+
+            <table class="table table-striped table-bordered file-export dataTable" id="table">
+              <thead>
+                <tr>
+                  <th>Sr No.</th>
+                  <th>Email</th>
+                  <th>Full Name</th>
+                  <th>Phone</th>
+                  <th>Role</th>
+                  <th>Company</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+  {% block script %}
+    <script>
+
+        $('#users-list-role, #users-list-company').select2({
+          width: "100%",
+        });
+    
+        var role = true;
+        if ("{{request.user.role}}" == "company admin"){
+          role = false;
+        }
+        var i = 1;
+
+        function set_filters(){
+          var data = {}
+          data["role"] = $("#users-list-role").val()
+          data["company"] = $("#users-list-company").val()
+          return data
+        }
+
+        function initialize_datatable(){
+
+          var t = $('#table').DataTable({
+              columnDefs: [
+              {
+                  orderable: false,
+                  targets: [0, -1, -2]
+              },
+              {
+                targets: [5],
+                visible: role // new variable true or false based on user role.
+              }
+              ],
+              order: [],
+
+              // Ajax for pagination
+              processing: true,
+              serverSide: true,
+              ajax: {
+                  url: '{% url "users:user_list_ajax" %}',
+                  type: 'get',
+                  data: set_filters(),
+              },
+              columns: [
+                { data: 'id', name: 'id' },
+                { data: 'email', name: 'email' },
+                { data: 'full_name', name: 'full_name' },
+                { data: 'phone', name: 'phone' },
+                { data: 'role', name: 'role' },
+                { data: 'company', name: 'company' },
+                { data: 'actions', name: 'actions' }
+              ],
+              rowCallback: function (nRow, aData, iDisplayIndex) {
+                var oSettings = this.fnSettings ();
+                $("td:first", nRow).html(oSettings._iDisplayStart+iDisplayIndex +1);
+                return nRow;
+              },
+          });
+
+        }
+
+        initialize_datatable();
+
+        $("#users-list-role, #users-list-company").on("change", function () {
+          // t.search($(this).val()).draw();
+          $("#table").DataTable().destroy();
+          initialize_datatable()
+        });
+
+        $(".users-list-clear").on("click",function(){
+          $('#users-list-role').val(null).trigger('change');
+          $('#users-list-company').val(null).trigger('change');
+          $("#table").DataTable().destroy();
+          //$("#users-list-role option[value='']").attr("selected", "selected")
+          //$("#users-list-company").val("");
+          initialize_datatable()
+        })
+    </script>
+    <script>
+      
+      $(document).on('click', '.ajax-delete-btn' , function (e){
+        var id = $(this).data("id")
+        var name = $(this).data("title")
+        if(name == "None"){
+            name = ""
+        }
+        var url = $(this).data("url")
+        var delete_ele = $(this)
+
+
+        Swal.fire({
+            html: `Are you sure you want to delete <b>${name}</b> ?`,
+            icon: 'question',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonColor: "#7442DB",
+        }).then((result) => {
+            
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        "id": id,
+                        "csrfmiddlewaretoken": '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                      $('#table').DataTable().ajax.reload(null, false);
+                      if (data["message"]){
+                        $.toast({
+                            text: data.message,
+                            position: 'bottom-right',
+                            stack: false,
+                            icon: 'success',                    
+                        })
+                    }
+                  }    
+                });
+            }
+        })
+    })
+
+    </script>
+
+{% endblock script %}

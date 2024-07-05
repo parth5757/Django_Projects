@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Purchase Order List{% endblock title %}
+{% block bodycontent %}
+<div class="company-list-filter px-2">
+  <div class="row border rounded py-2 mb-2 mx-n2">
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <label for="users-list-company">Purchase Order Status</label>
+      <fieldset class="form-group">
+        <select id="purchase_order_status" class="form-control">
+          <option value="">All</option>
+          {% for purhase_order_status in purhase_order_statuses %}
+          <option value="{{purhase_order_status.0}}">{{purhase_order_status.1}}</option>
+          {% endfor %}
+        </select>
+      </fieldset>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-2">
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-1 d-flex align-items-center">
+      <button type="reset" class="btn btn-primary btn-block company-list-clear glow mb-0">Clear</button>
+    </div>
+  </div>
+</div>
+
+<section id="file-export">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex flex-sm-row flex-column justify-content-between">
+            <h4 class="card-title align-self-center">Purchase Order List</h4>
+            <a href="{% url 'purchase_order:purchase_order_create' %}" class="btn btn-primary ml-sm-1">New Purchase Order</a>
+          </div>
+        </div>
+        <div class="card-content ">
+          <div class="card-body">
+            <div class="">
+              <table class="table table-striped table-bordered file-export dataTable" id="table">
+                <thead>
+                  <th>Sr No.</th>
+                  <th>Company</th>
+                  <th>Vendor</th>
+                  <th>Bill Number</th>
+                  <th>Bill Date</th>
+                  <th>Total Price</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Actions</th>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock bodycontent %}
+
+{% block script %}
+<script>
+  $('#purchase_order_status').select2({
+    width: "100%",
+  });
+  var role = true;
+
+  function set_filters(){
+    var data = {}
+    data["purchase_order_status"] = $("#purchase_order_status").val()
+    return data
+  }
+  var order_false = []
+  var to_center = [3,4,6]
+  var invisible_columns = []
+  var filter_id = $("#purchase_order_status")
+
+  var url = '{% url "purchase_order:purchase_order_list_ajax" %}';
+  var columns = [
+      { data: 'id', name: 'id' },
+      { data: 'company', name: 'company' },
+      { data: 'vendor', name: 'vendor' },
+      { data: 'bill_number', name: 'bill_number' },
+      { data: 'bill_date', name: 'bill_date' },
+      { data: 'total_price', name: 'total_price' },
+      { data: 'status', name: 'status' },
+      { data: 'actions', name: 'id' },
+    ]
+</script>
+{% comment %} <script src="{% static 'webapp/company/company_scripts.js' %}"></script> {% endcomment %}
+<script src="{% static 'webapp/intailize_datatables.js' %}"></script>
+{% comment %} <script src="{% static 'webapp/purchase_order/purchase_order_scripts.js' %}"></script> {% endcomment %}
+
+<script>
+{% comment %} 
+  $("#purchase_order_status").on("change", function () {
+    $("#table").DataTable().destroy();
+    initialize_datatable();
+  }); {% endcomment %}
+  
+  $(".company-list-clear").on("click",function(){
+    $("#purchase_order_status").val(null).trigger('change');
+    $("#table").DataTable().destroy();
+    initialize_datatable();
+  })
+
+</script>
+{% endblock script %}

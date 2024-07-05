@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Warehouse List{% endblock title %}
+{% block bodycontent %}
+<div class="company-list-filter px-2">
+  <div class="row border rounded py-2 mb-2 mx-n2">
+    
+    <div class="col-12 col-sm-6 col-lg-3">
+      <label for="users-list-company">Warehouse Status</label>
+      <fieldset class="form-group">
+        <select id="warehouse_list_status" class="form-control">
+          <option value="">All</option>
+          {% for warehouse_status in warehouse_statuses %}
+          <option value="{{warehouse_status.0}}">{{warehouse_status.1}}</option>
+          {% endfor %}
+        </select>
+      </fieldset>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      {% if request.user.role != "company admin" %}
+      <label for="users-list-company">Company</label>
+      <fieldset class="form-group">
+        <select id="warehouse_list_company" class="form-control">
+          <option value="">All</option>
+          {% for company in companies %}
+          <option value="{{company.id}}">{{company.company_name|title}}</option>
+          {% endfor %}
+        </select>
+      </fieldset>
+      {% endif %}
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-2">
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-1 d-flex align-items-center">
+      <button type="reset" class="btn btn-primary btn-block company-list-clear glow mb-0">Clear</button>
+    </div>
+  </div>
+</div>
+<section id="file-export">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex flex-sm-row flex-column justify-content-between">
+            <h4 class="card-title align-self-center">Warehouse List</h4>
+            <a href="{% url 'company:add_warehouse' %}" class="btn btn-primary ml-sm-1">Add</a>
+          </div>
+        </div>
+        <div class="card-content ">
+          <div class="card-body">
+            <div class="">
+              <table class="table table-striped table-bordered file-export dataTable" id="table">
+                      <thead>
+                        <th>Sr No.</th>
+                        <th>Name</th>
+                        {% if request.user.role != 'company admin' %}
+                        <th>Company</th>
+                        {% endif %}
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endblock %}
+
+  {% block script %}
+  <script>
+    var role = true;
+    $('#warehouse_list_company, #warehouse_list_status').select2({
+      width: "100%",
+    });
+    var data_table_url = '{% url "company:warehouse_list_ajax" %}';
+    var columns_dtl = [];
+  </script>
+  {% if request.user.role == 'company admin' %}
+    <script>
+      columns_dtl = [
+      { data: 'id', name: 'id' },
+      { data: 'name', name: 'name' },
+      { data: 'city', name: 'city' },
+      { data: 'state', name: 'state' },
+      { data: 'country', name: 'country' },
+      { data: 'status', name: 'status' },
+      { data: 'actions', name: 'id' },
+    ]
+      role = false;
+    </script>
+    {% elif request.user.role == 'super admin'  %}
+    <script>
+      var columns_dtl = [
+      { data: 'id', name: 'id' },
+      { data: 'name', name: 'name' },
+      { data: 'company', name: 'company' },
+      { data: 'city', name: 'city' },
+      { data: 'state', name: 'state' },
+      { data: 'country', name: 'country' },
+      { data: 'status', name: 'status' },
+      { data: 'actions', name: 'id' },
+    ]
+    </script>
+  {% endif %}
+  <script>
+   
+    function set_filters(){
+      var data = {}
+      data["company"] = $("#warehouse_list_company").val();
+      data["warehouse_status"] = $("#warehouse_list_status").val();
+      return data
+    }
+  </script>
+<script src="{% static 'webapp/company/company_scripts.js' %}"></script>
+<script>
+
+  $('#warehouse_list_company,#warehouse_list_status').on("change", function () {
+    $("#table").DataTable().destroy();
+    initialize_datatable();
+  });
+  
+  $(".company-list-clear").on("click",function(){
+    $("#warehouse_list_company").val(null).trigger('change');
+    $("#warehouse_list_status").val(null).trigger('change');
+    $("#table").DataTable().destroy();
+    initialize_datatable();
+  })
+
+</script>
+<script>
+  
+  $(document).on('click', '.ajax-delete-btn' , function (e){
+    var id = $(this).data("id")
+    var name = $(this).data("title")
+    if(name == "None"){
+        name = ""
+    }
+    var url = $(this).data("url")
+    var delete_ele = $(this)
+
+
+    Swal.fire({
+        html: `Are you sure you want to delete <b>${name}</b> ?`,
+        icon: 'question',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: "#7442DB",
+    }).then((result) => {
+        
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    "id": id,
+                    "csrfmiddlewaretoken": '{{ csrf_token }}'
+                },
+                success: function (data) {
+                  $('#table').DataTable().ajax.reload(null, false);
+                  if (data["message"]){
+                    $.toast({
+                        text: data.message,
+                        position: 'bottom-right',
+                        stack: false,
+                        icon: 'success',                    
+                    })
+                }
+              }    
+            });
+        }
+    })
+})
+
+</script>
+
+{% endblock script %}

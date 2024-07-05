@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block bodycontent %}
+<section id="action-form-layout">
+    <div class="row match-height">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Update Product Price</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <form action="" method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-1">{{form.name.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.name}}
+                                            {% if form.name.errors %}
+                                                {% for error in form.name.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% comment %} <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-2">{{form.is_type_a_invoice.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.is_type_a_invoice}}
+                                            {% if form.is_type_a_invoice.errors %}
+                                                {% for error in form.is_type_a_invoice.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-1">{{form.stock.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.stock}}
+                                            {% if form.stock.errors %}
+                                                {% for error in form.stock.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-2">{{form.srp.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.srp}}
+                                            {% if form.srp.errors %}
+                                                {% for error in form.srp.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-1">{{form.cost_price.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.cost_price}}
+                                            {% if form.cost_price.errors %}
+                                                {% for error in form.cost_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-2">{{form.wholesale_min_price.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.wholesale_min_price}}
+                                            {% if form.wholesale_min_price.errors %}
+                                                {% for error in form.wholesale_min_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-1">{{form.wholesale_base_price.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.wholesale_base_price}}
+                                            {% if form.wholesale_base_price.errors %}
+                                                {% for error in form.wholesale_base_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-2">{{form.retail_min_price.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.retail_min_price}}
+                                            {% if form.retail_min_price.errors %}
+                                                {% for error in form.retail_min_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label"
+                                            for="horizontal-form-2">{{form.retail_base_price.label}}</label>
+                                        <div class="col-md-9">
+                                            {{form.retail_base_price}}
+                                            {% if form.retail_base_price.errors %}
+                                                {% for error in form.retail_base_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2"><i class="ft-edit mr-1"></i>Update</button>
+                            <a href="{% url 'product:list_product_price' %}"><button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button></a>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

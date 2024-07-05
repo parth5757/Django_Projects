@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% block title %}List|Brand|Product{% endblock title %} -->
+{% block style %}
+<style>
+    .table-responsive {
+        display: inline-table;
+        width: 100%;
+    }
+</style>
+{% endblock style %}
+{% block bodycontent %}
+{% if request.user.role != "company admin" %}
+<div class="users-list-filter px-2">
+    <div class="row border rounded py-2 mb-2 mx-n2">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <label for="id_company">Company</label>
+            <fieldset class="form-group">
+                <select id="id_company" class="select2-data-array form-control select2-list">
+                    <option value="">All</option>
+                    {% for company in company_list %}
+                    <option value="{{company.id}}">{{company.company_name}}</option>
+                    {% endfor %}
+                </select>
+            </fieldset>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <label for="id_company">Status</label>
+            <fieldset class="form-group">
+                <select id="id_status" class="select2-data-array form-control select2-list">
+                    <option value="">All</option>
+                    {% for obj in object_list|slice:":1" %}
+                    <option value="{{obj.STATUS_CHOICES.0.0}}">{{obj.STATUS_CHOICES.0.1}}</option>
+                    <option value="{{obj.STATUS_CHOICES.1.0}}">{{obj.STATUS_CHOICES.1.1}}</option>
+                    {% endfor %}
+                </select>
+            </fieldset>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-5">
+        </div>
+        <div class="col-12 col-sm-6 col-lg-1 d-flex align-items-center">
+            <button type="reset" class="btn btn-primary btn-block users-list-clear glow mb-0">Clear</button>
+        </div>
+    </div>
+</div>
+{% endif %}
+<section id="file-export">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex flex-sm-row flex-column justify-content-between">
+                        <h4 class="card-title align-self-center">Brand List</h4>
+                        <a href="{% url 'product:add_brand' %}" class="btn btn-primary ml-sm-1">Add</a>
+                    </div>
+                </div>
+                <div class="card-content ">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered file-export" id="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Brand</th>
+                                        <th>Company</th>
+                                        <th>Product<br> Count </th>
+                                        <th class="text-center">Active Product</th>
+                                        <th class="text-center">Inactive Product</th> 
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock bodycontent %}
+{% block script %}
+
+<script>
+    var role = true;
+    if ("{{request.user.role}}" == "company admin") {
+        role = false;
+    }
+    var i = 1;
+
+    function set_filters() {
+        var data = {}
+        data["company"] = $("#id_company").val();
+        data["status"] = $("#id_status").val();
+        return data
+    };
+
+    var order_false = [0, -1, 3]
+    var to_center = [0,3,4,5]
+    var invisible_columns = [2]
+    var filter_id = $("#id_company,#id_status")
+    var url = '{% url "product:brands-list-ajax" %}'
+    var columns = [
+        { data: 'id', name: 'id' },
+        { data: 'name', name: 'name' },
+        { data: 'company', name: 'company' },
+        { data: 'product_count', name: 'product_count' },
+        { data: 'active_product', name: 'active_product' },
+        { data: 'inactive_product', name: 'inactive_product' },
+        { data: 'status', name: 'status' },
+        { data: 'actions', name: 'actions' }
+    ]
+
+</script>
+
+<script src="{% static 'webapp/intailize_datatables.js' %}"></script>
+
+<script>
+    $(".users-list-clear").on("click", function () {
+        $("#id_company").val(null).trigger('change');
+        $("#id_status").val(null).trigger('change');
+        $("#table").DataTable().destroy();
+        intailize_datatables()
+    })
+</script>
+
+<script>
+    $(document).on('click', '.ajax-delete-btn', function (e) {
+        var id = $(this).data("id")
+        var name = $(this).data("title")
+        if (name == "None") {
+            name = ""
+        }
+        var url = $(this).data("url")
+        var delete_ele = $(this)
+
+        Swal.fire({
+            html: `Are you sure you want to delete <b>${name}</b> ?`,
+            icon: 'question',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonColor: "#7442DB",
+        }).then((result) => {
+
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        "id": id,
+                        "csrfmiddlewaretoken": '{{ csrf_token }}'
+                    },
+                    success: function (data) {
+                        $('#table').DataTable().ajax.reload(null, false);
+                        if (data["message"]) {
+                            $.toast({
+                                text: data.message,
+                                position: 'bottom-right',
+                                stack: false,
+                                icon: 'success',
+                            })
+                        }
+                    }
+                });
+            }
+        })
+    })
+</script>
+
+<script src="{% static 'webapp/custom.js' %}"></script>
+
+{% endblock script %}

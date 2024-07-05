@@ -1,0 +1,4 @@
+-r base.txt
+
+# Wsgi Handlers
+gunicorn~=20.0.4

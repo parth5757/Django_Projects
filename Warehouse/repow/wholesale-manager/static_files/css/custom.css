@@ -1,0 +1,32 @@
+#delete_btn:hover {
+    cursor: pointer;
+}
+
+.col-1-5 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-10-5 {
+    flex: 0 0 87.5%;
+    max-width: 87.5%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.iti {
+    display: block !important;
+}
+
+.btn-pointer-events-none{
+    opacity: .65;
+}
+.btn-pointer-events-none:hover{
+    cursor: not-allowed;
+}

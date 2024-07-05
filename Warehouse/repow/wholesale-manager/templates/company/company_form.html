@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}{% if form.instance.id %}Update Company{% else %}Add Company{% endif %}{% endblock title %}
+{% block bodycontent %}
+<section id="horizontal-form-layout">
+  <div class="row match-height">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          {% if form.instance.id %}
+          <h4 class="card-title">Update Company</h4>
+          {% else %}
+          <h4 class="card-title">Add Company</h4> 
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <form action="" method="post" novalidate>
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.company_name.label}}{% if form.company_name.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.company_name}}
+                        {% if form.company_name.errors %}
+                            {% for error in form.company_name.errors %}
+                              <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.contact_person.label}}{% if form.contact_person.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.contact_person}}
+                      {% if form.contact_person.errors %}
+                        {% for error in form.contact_person.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.email.label}}{% if form.email.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.email}}
+                      {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-4">{{form.phone.label}}{% if form.phone.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.phone}}
+                      {% if form.phone.errors %}
+                        {% for error in form.phone.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% if form.instance.id %}
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.status.label}}{% if form.status.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.status}}
+                      {% if form.status.errors %}
+                        {% for error in form.status.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% if form.instance.id %}
+              <button type="submit" class="btn btn-primary mr-2"><i class="ft-edit mr-1"></i>Update</button>
+              {% else %}
+              <button type="submit" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  {% endblock %}
+  {% block script %}
+  <script>
+    $('#id_status').select2({
+      width: "100%",
+    });
+  </script>
+  {% endblock script %}

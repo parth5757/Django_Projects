@@ -1,0 +1,7 @@
+<option value="1" data-product-type="Piece">Piece</option>
+{% if product.box %}
+<option value="{{product.box_piece}}" data-product-type="Box" >Box ({{product.box_piece}} pcs)</option>
+{% endif %}
+{% if product.case %}
+<option value="{{product.case_piece}}" data-product-type="Case" >Case ({{product.case_piece}} pcs)</option>
+{% endif %}

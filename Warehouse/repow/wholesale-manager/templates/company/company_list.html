@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Company List{% endblock title %}
+{% block bodycontent %}
+<div class="company-list-filter px-2">
+  <div class="row border rounded py-2 mb-2 mx-n2">
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <label for="users-list-company">Company Status</label>
+      <fieldset class="form-group">
+        <select id="company_list_status" class="form-control">
+          <option value="">All</option>
+          {% for company_status in company_statuses %}
+          <option value="{{company_status.0}}">{{company_status.1}}</option>
+          {% endfor %}
+        </select>
+      </fieldset>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+    </div>
+    <div class="col-12 col-sm-6 col-lg-2">
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-1 d-flex align-items-center">
+      <button type="reset" class="btn btn-primary btn-block company-list-clear glow mb-0">Clear</button>
+    </div>
+  </div>
+</div>
+
+<section id="file-export">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex flex-sm-row flex-column justify-content-between">
+            <h4 class="card-title align-self-center">Company List</h4>
+            <a href="{% url 'company:add_company' %}" class="btn btn-primary ml-sm-1">Add</a>
+          </div>
+        </div>
+        <div class="card-content ">
+          <div class="card-body">
+            <div class="">
+              <table class="table table-striped table-bordered file-export dataTable" id="table">
+                <thead>
+                  <th>Sr No.</th>
+                  <th>Company Name</th>
+                  <th>Contact Person</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Actions</th>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock bodycontent %}
+
+{% block script %}
+<script>
+  $('#company_list_status').select2({
+    width: "100%",
+  });
+  var role = true
+  var data_table_url = '{% url "company:company_list_ajax" %}';
+  var columns_dtl = [
+      { data: 'id', name: 'id' },
+      { data: 'company_name', name: 'company_name' },
+      { data: 'contact_person', name: 'contact_person' },
+      { data: 'email', name: 'email' },
+      { data: 'phone', name: 'phone' },
+      { data: 'status', name: 'status' },
+      { data: 'actions', name: 'id' },
+    ]
+    function set_filters(){
+      var data = {}
+      data["company_status"] = $("#company_list_status").val()
+      return data
+    }
+</script>
+<script src="{% static 'webapp/company/company_scripts.js' %}"></script>
+<script>
+
+  $("#company_list_status").on("change", function () {
+    $("#table").DataTable().destroy();
+    initialize_datatable();
+  });
+  
+  $(".company-list-clear").on("click",function(){
+    $("#company_list_status").val(null).trigger('change');
+    $("#table").DataTable().destroy();
+    initialize_datatable();
+  })
+
+</script>
+{% endblock script %}

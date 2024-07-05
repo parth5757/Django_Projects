@@ -1,0 +1,119 @@
+{% load widget_tweaks %}
+{% load custom_template_tags %}
+{% load static %}
+
+<tr data-id="None" data-order="">
+    <td>
+        <div class="row">
+            <div class="col-6 mb-1">
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-2 mt-1 ">
+                            {{multiplecontacts.empty_form.type.label}}
+                        </div>
+                        <div class="col-10">
+                            <div class="help-block validate-email">
+                                {{multiplecontacts.empty_form.type}}
+                                {% for error in multipleinlines.empty_form.type.errors %}
+                                <ul role="alert" class="danger">
+                                    <li>{{ error }}</li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-1">
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-2 mt-1 ">
+                            {{multiplecontacts.empty_form.contact_person.label}}
+                        </div>
+                        <div class="col-10">
+                            <div class="help-block validate-email">
+                                {{multiplecontacts.empty_form.contact_person}}
+                                {% for error in multipleinlines.empty_form.contact_person.errors %}
+                                <ul role="alert" class="danger">
+                                    <li>{{ error }}</li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 mb-1">
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-2 mt-1 ">
+                            {{multiplecontacts.empty_form.email.label}}
+                        </div>
+                        <div class="col-10">
+                            <div class="help-block validate-email">
+                                {{multiplecontacts.empty_form.email}}
+                                {% for error in multipleinlines.empty_form.email.errors %}
+                                <ul role="alert" class="danger">
+                                    <li>{{ error }}</li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-1">
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-2 mt-1 ">
+                            {{multiplecontacts.empty_form.mobile_no.label}}
+                        </div>
+                        <div class="col-10">
+                            <div class="help-block validate-email">
+                                {{multiplecontacts.empty_form.mobile_no}}
+                                {% for error in multipleinlines.empty_form.mobile_no.errors %}
+                                <ul role="alert" class="danger">
+                                    <li>{{ error }}</li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-1">
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-3 mt-1 ">
+                            {{multiplecontacts.empty_form.is_default.label}}
+                        </div>
+                        <div class="col-9">
+                            <div class="help-block validate-email" id="checkbox" onclick="change()">
+                                {{multiplecontacts.empty_form.is_default}}
+                                {% for error in multipleinlines.empty_form.is_default.errors %}
+                                <ul role="alert" class="danger">
+                                    <li>{{ error }}</li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <button class="btn btn-default btn-circle-inline inlineform-remove"
+            data-button="{% if not form.instance.pk %}new{% endif %}" type="button">
+            <i class="ft-minus danger font-medium-3"></i>
+        </button>
+
+        {{ multiplecontacts.empty_form.DELETE|add_attr:"class:btn-inline-remove" }}
+
+        {% for hidden in multiplecontacts.empty_form.hidden_fields %}
+        {{ hidden }}
+        {% endfor %}
+    </td>
+</tr>

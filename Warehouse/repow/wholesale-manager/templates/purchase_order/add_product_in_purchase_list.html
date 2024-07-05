@@ -1,0 +1,26 @@
+{% if purchase_order_products %}
+
+{% for purchase_order_product in purchase_order_products %}
+<tr data-id="product_{{purchase_order_product.product.id}}" product-id={{purchase_order_product.product.id}} purchase-order-product={{purchase_order_product.id}} class="product-row">
+    <td data-title="product-id">{{forloop.counter}}</td>
+    <td data-title="product-name">{{purchase_order_product.product.name}}<input type="hidden" name="product_{{purchase_order_product.product.id}}__id" value="{{purchase_order_product.product.id}}" /></td>
+    <td data-title="unit-type-text">{{purchase_order_product.unit_type}} ({{purchase_order_product.get_unit_type_pieces}} pcs)<input type="hidden" name="product_{{purchase_order_product.product.id}}__unit_type" value="{{purchase_order_product.unit_type}}" /></td>
+    <td data-title="quantity"><input type="number"  min="1" max="10" name="product_{{purchase_order_product.product.id}}__quantity" class="form-control text-center" value="{{purchase_order_product.quantity}}" /><input type="hidden" name="product_{{purchase_order_product.product.id}}__quantity" value="{{purchase_order_product.quantity}}" /></td>
+    <td data-title="total-pieces"><input type="number"  min="0.00" data-default-value="{{purchase_order_product.get_unit_type_pieces}}" name="product_{{purchase_order_product.product.id}}__totalpieces" class="form-control text-center" value="{{purchase_order_product.total_pieces}}" readonly /></td>
+    <td data-title="cost-price"><input type="number"  min="0.00" step="0.01" name="product_{{purchase_order_product.product.id}}__costprice" class="form-control text-center" value="{{purchase_order_product.cost_price}}" /></td>
+    <td data-title="total-price"><input type="number"  min="0.00" step="0.01" name="product_{{purchase_order_product.product.id}}__totalprice" class="form-control text-center product-total-price" value="{{purchase_order_product.get_total_price}}" readonly /></td>
+    <td data-title="remove-product"><span class="btn-procuct-remove hover-pointer"><i class="ft-trash font-medium-3 danger btn-procuct-remove"></i></span></td>
+</tr>
+{% endfor %}
+{% else %}
+<tr data-id="product_{{product.id}}" product-id={{product.id}} purchase-order-product="new" class="product-row">
+    <td data-title="product-id"></td>
+    <td data-title="product-name">{{product.name}}<input type="hidden" name="product_{{product.id}}__id" value="{{product.id}}" /></td>
+    <td data-title="unit-type-text">{{unit_type_text}}<input type="hidden" name="product_{{product.id}}__unit_type" value="{{unit_type}}" /></td>
+    <td data-title="quantity"><input type="number"  min="1" max="10" name="product_{{product.id}}__quantity" class="form-control text-center" value="{{quantity}}" /></td>
+    <td data-title="total-pieces"><input type="number"  min="0.00" step="0.01" data-default-value="{{unit_type_pieces}}" name="product_{{product.id}}__totalpieces" class="form-control text-center" value="{{total_pieces}}" readonly /></td>
+    <td data-title="cost-price"><input type="number"  min="0.00" step="0.01" name="product_{{product.id}}__costprice" class="form-control text-center" value="{{cost_price}}" /></td>
+    <td data-title="total-price"><input type="number"  min="0.00" step="0.01" name="product_{{product.id}}__totalprice" class="form-control text-center product-total-price" value="{{total_price}}" readonly /></td>
+    <td data-title="remove-product"><span class="btn-procuct-remove hover-pointer"><i class="ft-trash font-medium-3 danger btn-procuct-remove"></i></span></td>
+</tr>
+{% endif %}

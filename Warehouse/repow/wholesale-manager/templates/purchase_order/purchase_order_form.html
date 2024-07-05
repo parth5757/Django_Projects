@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Purchase Order{% endblock title %}
+{% block bodycontent %}
+<section id="horizontal-form-layout">
+    <div class="content-header">
+      {% if form.instance.id %}
+          Update Purchase Order
+      {% else %}
+          Create Purchase Order 
+      {% endif %}
+    </div>
+    <div class="row match-height">
+        <form action="" method="post" class="w-100" id="form_purchase_order" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <small><b>Company &#38; Vendor</b></small>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="row">
+                                    {% if form.company %}
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.company.label}}{% if form.company.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                        <div class="col-md-9">
+                                            {{form.company}}
+                                            {% if form.company.errors %}
+                                              {% for error in form.company.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                              {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group row">
+                                          <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.vendor.label}}{% if form.vendor.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                          <div class="col-md-9">
+                                            {{form.vendor}}
+                                            {% if form.vendor.errors %}
+                                              {% for error in form.vendor.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                              {% endfor %}
+                                            {% endif %}
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.bill_number.label}}{% if form.bill_number.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                        <div class="col-md-9">
+                                            {{form.bill_number}}
+                                            {% if form.bill_number.errors %}
+                                              {% for error in form.bill_number.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                              {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group row">
+                                          <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.bill_date.label}}{% if form.bill_date.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                          <div class="col-md-9">
+                                            <div class="input-group">
+                                              {{form.bill_date}}
+                                              <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                  <span class="ft-calendar font-medium-2"></span>
+                                                </span>
+                                              </div>
+                                              {% if form.bill_date.errors %}
+                                                {% for error in form.bill_date.errors %}
+                                                  <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                              {% endif %}
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.remarks.label}}{% if form.remarks.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                        <div class="col-md-9">
+                                            {{form.remarks}}
+                                            {% if form.remarks.errors %}
+                                              {% for error in form.remarks.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                              {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <small><b>Purchase Products</b></small>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form2.product.label}}{% if form2.product.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                            <div class="col-md-9">
+                                                {{form2.product}}
+                                                {% if form2.product.errors %}
+                                                {% for error in form2.product.errors %}
+                                                    <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group row">
+                                          <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form2.unit_type.label}}{% if form2.product.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                          <div class="col-md-9">
+                                              {{form2.unit_type}}
+                                              {% if form2.unit_type.errors %}
+                                              {% for error in form2.unit_type.errors %}
+                                                  <p style="color: red;">{{error}}</p>
+                                              {% endfor %}
+                                              {% endif %}
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form2.quantity.label}}{% if form2.quantity.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                            <div class="col-md-9">
+                                                {{form2.quantity}}
+                                                {% if form2.quantity.errors %}
+                                                {% for error in form2.quantity.errors %}
+                                                    <p style="color: red;">{{error}}</p>
+                                                {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group row">
+                                          <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form2.total_pieces.label}}{% if form2.total_pieces.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                          <div class="col-md-9">
+                                            
+
+                                            {{form2.total_pieces}}
+                                            {% if form2.total_pieces.errors %}
+                                            {% for error in form2.quantity.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                            {% endfor %}
+                                            {% endif %}
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="horizontal-form-1">
+                                          {{form2.cost_price.label}}{% if form2.cost_price.field.required %}<span style="color: red;">*</span>{% endif %}<br/>
+                                          <small>per piece price</small>
+                                        </label>
+                                        <div class="col-md-9">
+                                          <div class="input-group">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text">$</span>
+                                            </div>
+                                            {{form2.cost_price}}
+                                            {% if form2.cost_price.errors %}
+                                            {% for error in form2.cost_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                            {% endfor %}
+                                            {% endif %}
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <div class="col-md-6 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="horizontal-form-1">Total Price</label>
+                                        <div class="col-md-9">
+                                          <div class="input-group">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text">$</span>
+                                            </div>
+                                          <input type="number"  min="0.00" name="product_total_price" id="product_total_price" class="form-control" value="0.00" readonly />
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12 col-12">
+                                        <div class="d-flex flex-sm-row flex-column justify-content-end">
+                                            {% comment %} <button type="button" class="btn btn-primary ml-sm-1" data-url="{% url 'order:ajax_get_product_details_for_order' %}" id="btn_add_product">Add</button> {% endcomment %}
+                                            <span type="button" data-url={% url 'purchase_order:add_product_in_purchase_list' %} class="btn btn-primary ml-sm-1 hover-pointer btn-pointer-events-none" id="btn_add_product">Add</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <small><b>Added Products list</b></small>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body table-responsive">
+                              <table id="table_added_products" class="table text-center m-0">
+                                <thead>
+                                  <tr>
+                                        <th>SR NO.</th>
+                                        <th>Product Name</th>
+                                        <th>Unit Type</th>
+                                        <th>Quantity</th>
+                                        <th>Total Pieces</th>
+                                        <th>Cost Price</th>
+                                        <th>Total Price</th>
+                                        <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="no-product-row">
+                                       <td colspan="8"><p>No products added</p></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                  <tr>
+                                    <td colspan="6" class="text-right"><b>Total: </b></td>
+                                    <td>
+                                        {{form.total_price}}
+                                            {% if form.total_price.errors %}
+                                            {% for error in form.total_price.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                            {% endfor %}
+                                            {% endif %}
+                                      {% comment %} <input type="number"  min="0.00" id="purchase_order_total" name="purchase_order_total" class="form-control text-center" value="0.00" readonly /> {% endcomment %}
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                  <div class="card">
+                      <div class="card-header">
+                          <small></small>
+                      </div>
+                      <div class="card-content">
+                          <div class="card-body">
+                              <div class="row">
+                                  <div class="col-md-8 col-12">
+                                      <div class="form-group row">
+                                          <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.invoice.label}}{% if form.invoice.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                          <div class="col-md-9">
+                                            <div class="custom-file">
+                                              {{form.invoice}}
+                                              <label class="custom-file-label" for="inputGroupFile01">Upload Invoice document</label>
+                                              {% if form.invoice.errors %}
+                                              {% for error in form.invoice.errors %}
+                                                  <p style="color: red;">{{error}}</p>
+                                              {% endfor %}
+                                              {% endif %}
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  {% if form.instance.id %}
+                                  <div class="col-md-8 col-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.status.label}}{% if form.status.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                                        <div class="col-md-6">
+                                            {{form.status}}
+                                            {% if form.status.errors %}
+                                            {% for error in form.status.errors %}
+                                                <p style="color: red;">{{error}}</p>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                  {% endif %}
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-md-12 col-12">
+                                  <div class="d-flex flex-sm-row flex-column justify-content-end">
+                                    <input type="hidden" name="product_id_list" id="product_id_list" value="" />
+                                    {% if form.instance.id %}
+                                        <button type="sumbit" class="btn btn-primary mr-2"><i class="ft-edit mr-1"></i>Update</button>
+                                        {% else %}
+                                        <button type="submit" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+                                        <button type="reset" class="btn btn-primary ml-sm-1" id="btn_form_reset">Reset</button>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </form>
+    </div>
+</section>
+  {% endblock %}
+  {% block script %}
+
+  <script>
+    var data_url = "{% url 'purchase_order:ajax_get_vendors_by_company' %}";
+    {% comment %} ajax_get_update_product_details {% endcomment %}
+  </script>
+  {% if request.user.role == 'company admin' %}
+    <script>
+      var company_admin_company_id = '{{request.user.company_users.first.company.id}}';
+    </script>
+    {% else %}
+      <script>
+        var company_admin_company_id = null
+      </script>
+  {% endif %}
+  {% if form.instance.id %}
+  <script>
+    var update_form = true;
+    var purchase_order_id = '{{form.instance.id}}'
+    var update_purchase_order_url = "{% url 'purchase_order:ajax_get_update_product_details' %}";
+  </script>
+  {% comment %} <script src="{% static 'webapp/purchase_order/purchase_order_update_scripts.js' %}"></script> {% endcomment %}
+  {% else %}
+  <script>
+
+    var update_form = false;
+
+  </script>
+  {% comment %} <script src="{% static 'webapp/purchase_order/purchase_order_scripts.js' %}"></script> {% endcomment %}
+{% endif %}
+<script src="{% static 'webapp/purchase_order/purchase_order_scripts.js' %}"></script>
+
+  {% endblock script %}
+  

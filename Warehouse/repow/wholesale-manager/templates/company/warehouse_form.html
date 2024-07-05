@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% block title %}{% if form.instance.id %}Update Warehouse{% else %}Add Warehouse{% endif %}{% endblock title %}
+{% block bodycontent %}
+<section id="horizontal-form-layout">
+  <div class="row match-height">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          {% if form.instance.id %}
+          <h4 class="card-title">Update Warehouse</h4>
+          {% else %}
+          <h4 class="card-title">Add Warehouse</h4>
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <form action="" method="post" novalidate>
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.name.label}}{% if form.name.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.name}}
+                      {% if form.name.errors %}
+                        {% for error in form.name.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                {% if  form.company %}
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.company.label}}{% if form.company.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        {{form.company}}
+                        {% if form.company.errors %}
+                          {% for error in form.company.errors %}
+                            <p style="color: red;">{{error}}</p>
+                          {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.address_line_1.label}}{% if form.address_line_1.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.address_line_1}}
+                      {% if form.address_line_1.errors %}
+                        {% for error in form.address_line_1.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-4">{{form.address_line_2.label}}{% if form.address_line_2.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.address_line_2}}
+                      {% if form.address_line_2.errors %}
+                        {% for error in form.address_line_2.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.city.label}}{% if form.city.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.city}}
+                      {% if form.city.errors %}
+                        {% for error in form.city.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-4">{{form.state.label}}{% if form.state.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.state}}
+                      {% if form.state.errors %}
+                        {% for error in form.state.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.country.label}}{% if form.country.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.country}}
+                      {% if form.country.errors %}
+                        {% for error in form.country.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-4">{{form.zip_code.label}}{% if form.zip_code.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.zip_code}}
+                      {% if form.zip_code.errors %}
+                        {% for error in form.zip_code.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.latitude.label}}{% if form.latitude.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.latitude}}
+                      {% if form.latitude.errors %}
+                        {% for error in form.latitude.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-4">{{form.longitude.label}}{% if form.longitude.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.longitude}}
+                      {% if form.longitude.errors %}
+                        {% for error in form.longitude.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% if form.instance.id %}
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-3">{{form.status.label}}{% if form.status.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                    <div class="col-md-9">
+                      {{form.status}}
+                      {% if form.status.errors %}
+                        {% for error in form.status.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% if form.instance.id %}
+              <button type="submit" class="btn btn-primary mr-2"><i class="ft-edit mr-1"></i>Update</button>
+              {% else %}
+              <button type="submit" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %} 
+<script>
+  $('#id_status,#id_company').select2({
+    width: "100%",
+  });
+</script>
+{% endblock script %}

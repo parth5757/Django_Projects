@@ -1,0 +1,90 @@
+{% load static %}
+<form action="{% url 'product:update_stock' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="product" id="id_product" value="{{product.id}}">
+    <input type="hidden" name="warehouse" id="id_warehouse" value="{{warehouse_id}}">
+    <div class="form-group row">
+        <div class="col-3">
+            <label>Unit Type</label>
+        </div>
+        <div class="col-3">
+            <label>Quantity Per Unit</label>
+        </div>
+        <div class="col-3">
+            <label>Quantity</label>
+        </div>
+        <div class="col-3">
+            <label>Total Quantity</label>
+        </div>
+    </div>
+    <div class="form-group row mt-2">
+        <div class="col-3">
+            <label>Piece</label>
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" id="id_pieces" value="1" disabled>
+        </div>
+        <div class="col-3">
+            <input type="number" class="form-control" value="0" id='id_piece'>
+        </div>
+        <div class="col-3">
+            <input type="number" class="form-control" readonly value="0" id="id_piece_total">
+        </div>
+    </div>
+    {% if product.box %}    
+    <div class="form-group row mt-2">
+        <div class="col-3">
+            <label>Box</label>
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" id="id_box_piece" value="{{ product.box_piece }}" disabled>
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" value="0" id='id_box'>
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" readonly value="0" id="id_box_total">
+        </div>
+    </div>
+    {% endif %}
+
+    {% if product.case %}
+    <div class="form-group row mt-2">
+        <div class="col-3">
+            <label>Case</label>
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" id="id_case_piece" value="{{product.case_piece}}" disabled>
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" value="0" id="id_case">
+        </div>
+        <div class="col-3">
+                <input class="form-control" readonly type="number" value="0" id="id_case_total" readonly>
+        </div>
+    </div>
+    {% endif %}
+    <div class="form-group row mt-2">
+        <div class="col-5">
+        </div>
+        <div class="col-4 mt-2">
+            <label><b>Total Quantity(Piece)</b></label>
+        </div>
+        <div class="col-3">
+            <input type="number" class="form-control" name="stock" required="" id="id_stock" readonly>
+        </div>
+    </div>
+    <div class="form-group row mt-2">
+        <div class="col-9">
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary form-control"><i class="ft-edit mr-2"></i>Save</button>
+        </div>
+    </div>
+</form>
+<script>
+    var ele = document.getElementById("id_available_stock")
+    ele.value = {{ available_stock }};
+    ele.disabled = true;
+</script>
+<script src="{% static 'webapp/product/stock_calculation.js' %}"></script>

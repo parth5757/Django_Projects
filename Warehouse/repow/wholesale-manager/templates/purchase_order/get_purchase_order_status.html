@@ -1,0 +1,7 @@
+{% if purchase_order.status == 'completed' %}
+<center><span class="badge bg-light-success">{{purchase_order.status.title}}</span></center>
+{% elif purchase_order.status == 'reverted' %}
+<center><span class="badge bg-light-danger">{{purchase_order.status.title}}</span></center>
+{% elif purchase_order.status == 'pending' %}
+<center><span class="badge bg-light-warning">{{purchase_order.status.title}}</span></center>
+{% endif %}

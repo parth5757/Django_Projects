@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+{% block title %}Barcode{% endblock title %}
+{% block bodycontent %}
+<section id="action-form-layout">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Barcode</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form action="{% url 'product:generate_barcode' %}" method="post" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                {% comment %} {{form.as_p}} {% endcomment %}
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.product.label}}{% if form.product.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        
+                        {% comment %} {% for data in product %} {% endcomment %}
+                            {% comment %} {{data.id}} {% endcomment %}
+                            <input type="text" name="product_name" class="form-control" value="{{product.name}}" readonly>
+                            <input type="text" name="product_id" class="form-control" value="{{product.id}}" hidden>
+                        {% comment %} {% endfor %} {% endcomment %}
+                        {% comment %} {{product}} {% endcomment %}
+                        {% if form.product.errors %}
+                            {% for error in form.product.errors %}
+                              <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.product_type.label}}{% if form.product_type.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        <select class="form-control select2-list" id="product_type" name="product_type">
+                        {% comment %} {% for data in product %} {% endcomment %}
+                        <option value="piece">Piece</option>
+                            {% if product.box %}
+                            <option value="box">Box</option>
+                            {% if product.case %}
+                            <option value="case">Case</option>
+                            {% endif %}
+                            {% endif %}
+                            {% comment %} {% endfor %} {% endcomment %}
+                        </select>
+                        {% if form.product_type.errors %}
+                            {% for error in form.product_type.errors %}
+                              <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.barcode_number.label}}{% if form.barcode_number.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                          <div class="col-md-9">
+                            {{form.barcode_number}}
+                            {% if form.barcode_number.errors %}
+                                {% for error in form.barcode_number.errors %}
+                                  <p style="color: red;">{{error}}</p>
+                                {% endfor %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                <button type="submit" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+                <a href="{% url 'product:list_product' %}"><button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'product/list_barcode.html' %}
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $('.select2-list').select2({
+        width: "100%",
+      });
+</script>
+
+<script>
+    function initialize_datatable(){
+
+        var t = $('#table').DataTable({
+            columnDefs: [
+            {
+                orderable: false,
+                targets: [0,]
+            },
+            ],
+
+            // Ajax for pagination
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: '{% url "product:product_barcode_list" %}',
+                type: 'get',
+                data: {'id':"{{product.id}}"}
+            },
+            columns: [
+              { data: 'id', name: 'id' },
+              
+              { data: 'unit', name: 'unit' },
+              { data: 'barcode_number', name: 'barcode_number' },
+              { data: 'barcode_code', name: 'barcode_code' },
+              
+            ],
+            rowCallback: function (nRow, aData, iDisplayIndex) {
+              var oSettings = this.fnSettings();
+              $("td:first", nRow).html(oSettings._iDisplayStart + iDisplayIndex + 1);
+              return nRow;
+          },
+            
+        });
+
+        }
+
+        initialize_datatable();
+
+        $(document).on('click', '.submit-customer-price', function (){
+                    var id = $(this).data("id")
+                    var url = $(this).data("url")
+
+                      $.ajax({
+                          type: "POST",
+                          url: url,
+                          data: {
+                              "id": id,
+                              "csrfmiddlewaretoken": '{{ csrf_token }}'
+                          },
+                          success: function (data) {
+                            $('#table').DataTable().ajax.reload(null, false);
+                            if (data["message"]){
+                              $.toast({
+                                  text: data.message,
+                                  position: 'bottom-right',
+                                  stack: false,
+                                  icon: 'success',                    
+                              })
+                          }
+                              
+                        }    
+                      });
+      })
+</script>
+
+{% endblock script %}

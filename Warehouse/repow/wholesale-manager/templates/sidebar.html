@@ -1,0 +1,104 @@
+{% load static %}
+
+
+
+<!-- main menu-->
+<!--.main-menu(class="#{menuColor} #{menuOpenType}", class=(menuShadow == true ? 'menu-shadow' : ''))-->
+<div class="app-sidebar menu-fixed " data-background-color="flickr" data-scroll-to-active="true">
+  <!-- main menu header-->
+  <!-- Sidebar Header starts-->
+  <div class="sidebar-header">
+    <div class="logo clearfix"><a class="logo-text float-left" href="#">
+        <div class="logo-img"><img src="{% static 'app-assets/img/logo.png' %}" alt="Apex Logo" /></div class=""><span
+          class="text small">WholeSale</span>
+      </a></div>
+  </div>
+  <!-- Sidebar Header Ends-->
+  <!-- / main menu header-->
+  <!-- main menu content-->
+  <div class="sidebar-content main-menu-content">
+    <div class="nav-container">
+      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        <li class="{% if 'users' in request.path %}active{% endif %}"><a href="{% url 'users:user_list' %}"><i class="ft-users"></i><span class="menu-title"
+              data-i18n="Email">Users</span></a>
+        </li>
+        {% if request.user.role == 'super admin' %}
+        <li class="{% if 'companies/' in request.path and not 'warehouses/' in request.path %}active{% endif %}"><a href="{% url 'company:company_list' %}"><i class="ft-home"></i><span class="menu-title"
+          data-i18n="Email">Company</span></a>
+        </li>
+        {% endif %}
+        <li class="{% if 'companies/warehouses/' in request.path %}active{% endif %}" ><a href="{% url 'company:warehouse_list' %}"><i class="ft-mail"></i><span
+              class="menu-title" data-i18n="Email">Warehouse</span></a>
+        </li>
+
+        <li class="has-sub nav-item"><a href=""><i class="ft-home"></i><span class="menu-title"
+              data-i18n="Dashboard">Product</span></a>
+          <ul class="menu-content">
+            <li class="{% if 'product/brands/' in request.path %}active{% endif %}"><a
+              href="{% url 'product:list_brand' %}"><i class="ft-briefcase"></i><span class="menu-title"
+              data-i18n="Email">Brand</span></a>
+            </li>
+            <li class="{% if 'product/categories/' in request.path %}active{% endif %}"><a
+              href="{% url 'product:list_category' %}"><i class="ft-box"></i><span class="menu-title"
+              data-i18n="Email">Category</span></a>
+            </li>
+            <li class="{% if 'product/subcategories/' in request.path %}active{% endif %}"><a
+              href="{% url 'product:list_subcategory' %}"><i class="ft-codepen"></i><span class="menu-title"
+              data-i18n="Email">Subcategory</span></a>
+            </li>
+            <li
+              class="{% if 'product/' in request.path and not 'product/price/' in request.path and not 'product/manage_stocks/' in request.path and not 'product/add-stock-from-csv/' in request.path and not 'product/brands/' in request.path and not 'product/categories/' in request.path and not 'product/subcategories/' in request.path %}active{% endif %}">
+              <a href="{% url 'product:list_product' %}"><i class="ft-layers"></i><span class="menu-title"
+                  data-i18n="Email">Product List</span></a>
+            </li>
+            <li class="{% if 'product/price/' in request.path %}active{% endif %}"><a
+                href="{% url 'product:list_product_price' %}"><i class="ft-layers"></i><span class="menu-title"
+                  data-i18n="Email">Product Price</span></a>
+            </li>
+            <li class="{% if 'product/manage_stocks/' in request.path or 'product/add-stock-from-csv/' in request.path %}active{% endif %}"><a
+              href="{% url 'product:manage_stocks' %}"><i class="ft-layers"></i><span class="menu-title"
+                data-i18n="Email">Manage Stock</span></a>
+          </li>
+          </ul>
+        </li>
+        <li class="{% if 'vendors' in request.path %}active{% endif %}"><a href="{% url 'vendors:vendor_list' %}"><i class="ft-mail"></i><span class="menu-title"
+              data-i18n="Email">Vendors</span></a>
+        </li>
+        <li class="has-sub nav-item"><a href=""><i class="ft-home"></i><span class="menu-title"
+          data-i18n="Dashboard">Customer</span></a>
+          <ul class="menu-content">
+            <li class="" ><a href="#"><i class="ft-layers"></i><span
+              class="menu-title" data-i18n="Email">Dashboard</span></a>
+            </li>
+            <li class="{% if 'customers/' in request.path and not 'customers/payment/' in request.path and not 'customers/sales-route/' in request.path and not 'customers/price-level/' in request.path%}active{% endif %}" ><a href="{% url 'customer:customer_list' %}"><i class="ft-layers"></i><span
+              class="menu-title" data-i18n="Email">Customer</span></a>
+            </li>
+            <li class="{% if 'customers/payment/' in request.path %}active{% endif %}" ><a href="{% url 'customer:payment_list' %}"><i class="ft-layers"></i><span
+              class="menu-title" data-i18n="Email">Payment</span></a>
+            </li>
+            <li class="{% if 'customers/sales-route/' in request.path %}active{% endif %}" ><a href="{% url 'customer:sales_route_list' %}"><i class="ft-layers"></i><span
+              class="menu-title" data-i18n="Email">Sales Route</span></a>
+            </li>
+            <li class="{% if 'customers/price-level/' in request.path %}active{% endif %}" ><a href="{% url 'customer:price_level_list' %}"><i class="ft-layers"></i><span
+              class="menu-title" data-i18n="Email">Price Level</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="{% if 'purchase-order' in request.path %}active{% endif %}">
+          <a href="{% url 'purchase_order:purchase_order_list' %}"><i class="ft-box"></i><span class="menu-title" data-i18n="Email">Purchase Order</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- main menu content-->
+  <div class="sidebar-background"></div>
+  <!-- main menu footer-->
+  <!-- include includes/menu-footer-->
+  <!-- main menu footer-->
+  <!-- / main menu-->
+</div>
+<div class="main-panel">
+  <!-- BEGIN : Main Content-->
+  <div class="main-content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper"><!--Statistics cards Starts-->

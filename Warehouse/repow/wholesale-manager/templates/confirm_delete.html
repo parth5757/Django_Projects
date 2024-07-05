@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block bodycontent %}
+<div>
+    <form action="" method="post">
+        {% csrf_token %}   
+    <h3>Are you sure want to Delete</h3>
+    <button type="submit" class="btn btn-danger bg-light-danger mr-1 mb-1">Delete</button>
+    <a onclick="history.back()" class="btn btn-info bg-light-info mb-1">Go Back</a>
+</form>
+ 
+<div>
+    
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

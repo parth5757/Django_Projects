@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if form.instance.id %}
+Update|Payment
+{% else %}
+Add|Payment
+{% endif %}
+{% endblock title %}
+
+{% block bodycontent %}
+<section id="action-form-layout">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            {% if form.instance.id %}
+            <h4 class="card-title">Update Payment</h4>
+            {% else %}
+            <h4 class="card-title">Add Payment</h4> 
+            {% endif %}
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {% comment %} {{form.as_p}} {% endcomment %}
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.receive_date.label}}{% if form.receive_date.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        <input type="date" name="receive_date"  class="form-control" placeholder="Receive Date" required id="id_receive_date">
+                        {% if form.receive_date.errors %}
+                            {% for error in form.receive_date.errors %}
+                              <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.entry_date.label}}{% if form.entry_date.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        <input type="date" name="entry_date"  class="form-control" placeholder="Entry Date" required id="id_entry_date">
+                        {% if form.entry_date.errors %}
+                            {% for error in form.entry_date.errors %}
+                              <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.customer_name.label}}{% if form.customer_name.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                        <div class="col-md-9">
+                          {{form.customer_name}}
+                          {% if form.customer_name.errors %}
+                              {% for error in form.customer_name.errors %}
+                                <p style="color: red;">{{error}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-12 ">
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.receive_amount.label}}{% if form.receive_amount.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                        <div class="col-md-9">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                            </div>
+                          {{form.receive_amount}}
+                          {% if form.receive_amount.errors %}
+                              {% for error in form.receive_amount.errors %}
+                                <p style="color: red;">{{error}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-12">
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.payment_mode.label}}{% if form.customer_name.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                        <div class="col-md-9">
+                          {{form.payment_mode}}
+                          {% if form.payment_mode.errors %}
+                              {% for error in form.payment_mode.errors %}
+                                <p style="color: red;">{{error}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.check_no.label}}{% if form.check_no.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                        <div class="col-md-9">
+                          {% comment %} <input type="text" class="form-control square" id="horizontal-form-2" name="last-name"> {% endcomment %}
+                          {{form.check_no}}
+                          {% if form.check_no.errors %}
+                              {% for error in form.check_no.errors %}
+                                <p style="color: red;">{{error}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-12">
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.reference_id.label}}{% if form.reference_id.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                        <div class="col-md-9">
+                          {{form.reference_id}}
+                          {% if form.reference_id.errors %}
+                              {% for error in form.reference_id.errors %}
+                                <p style="color: red;">{{error}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.remark.label}}{% if form.remark.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                        <div class="col-md-9">
+                          {% comment %} <input type="text" class="form-control square" id="horizontal-form-2" name="last-name"> {% endcomment %}
+                          {{form.remark}}
+                          {% if form.remark.errors %}
+                              {% for error in form.remark.errors %}
+                                <p style="color: red;">{{error}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% comment %} <div class="form-group">  
+                  <label for="form-action-1">Email</label>
+                  <input type="email" id="form-action-1" class="form-control" name="issue-title">
+                </div>
+                <div class="form-group">
+                  <label for="form-action-2">Full Name</label>
+                  <input type="text" id="form-action-2" class="form-control" name="opened-by">
+                </div>
+                <div class="form-group">
+                    <label for="form-action-2">Phone</label>
+                    <input type="number" id="form-action-2" class="form-control" name="opened-by">
+                </div>
+                <div class="form-group">
+                    <label for="form-action-2">Role</label>
+                    <input type="text" id="form-action-2" class="form-control" name="opened-by">
+                  </div> {% endcomment %}
+                  {% if form.instance.id %}
+                  <button type="submit" class="btn btn-primary mr-2"><i class="ft-edit mr-1"></i>Update</button>
+                  {% else %}
+                  <button type="submit" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+                  {% endif %}
+                <a href="{% url 'customer:payment_list' %}"><button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+
+  {% block script %}
+  <script>
+    $('.select2-list').select2({
+        width: "100%",
+    });
+</script>
+  {% endblock  %}

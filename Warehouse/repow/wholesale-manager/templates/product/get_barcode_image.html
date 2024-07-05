@@ -1,0 +1,18 @@
+{% load static %}
+<center>
+
+<div class="">
+    <img src="{% if img_url %} {{img_url.url}} {% else %} {% static 'images/product-image.png' %} {% endif %}"  alt="avatar" height="{{height}}" width="{{width}}">
+</div>
+</center>
+   
+   
+    
+    {% if obj.get_preview_url %}
+    <a class="info p-0 ml-1" href="{{obj.get_preview_url}}">
+    </a>
+    {% else %}
+    <a class="info p-0" href="{{obj.get_update_url}}">
+    </a>
+    {% endif %}
+    

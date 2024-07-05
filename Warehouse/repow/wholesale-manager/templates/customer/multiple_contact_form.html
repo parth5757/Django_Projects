@@ -1,0 +1,153 @@
+{% load widget_tweaks %}
+{% load custom_template_tags %}
+{{ multiplecontacts.management_form }}
+{% load static %}
+
+<div class="row "style="padding:1.15rem 0rem;">
+
+    <div class="col-md-2">
+        <label class="label-control mt-2 font-weight-bold" for="id_additional_charges">Contact Details :</label>
+    </div>
+    <div class="col-md-12">
+
+        <table class="table table-bordered inline-formset mt-3"
+            id="multiplecontact_set-table">
+
+            <tbody>
+                {% for form  in multiplecontacts.forms %}
+                <tr data-id="{{ form.id.value }}" data-order="">
+                    <td>
+                        <div class="row">
+                            <div class="col-6 mb-1 " hidden>
+                                <div class="controls">
+                                    <div class="help-block validate-email">
+                                        {{form.customer_obj}}
+                                        {% for error in form.customer_obj.errors %}
+                                        <ul role="alert" class="danger">
+                                            <li>{{ error }}</li>
+                                        </ul>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-1">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-2 mt-1">
+                                        {{form.type.label}}
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="help-block validate-email">
+                                                {{form.type}}
+                                                {% for error in form.type.errors %}
+                                                <ul role="alert" class="danger">
+                                                    <li>{{ error }}</li>
+                                                </ul>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-1">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-2 mb-1">
+                                            <span>{{form.contact_person.label}}</span>
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="help-block validate-email">
+                                                {{form.contact_person}}
+                                                {% for error in form.contact_person.errors %}
+                                                <ul role="alert" class="danger">
+                                                    <li>{{ error }}</li>
+                                                </ul>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-1">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-2 mt-1">
+                                        {{form.email.label}}
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="help-block validate-email">
+                                                {{form.email}}
+                                                {% for error in form.email.errors %}
+                                                <ul role="alert" class="danger">
+                                                    <li>{{ error }}</li>
+                                                </ul>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-1">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-2 mt-1">
+                                        {{form.mobile_no.label}}
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="help-block validate-email">
+                                                {{form.mobile_no}}
+                                                {% for error in form.mobile_no.errors %}
+                                                <ul role="alert" class="danger">
+                                                    <li>{{ error }}</li>
+                                                </ul>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-1">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-3 mt-1 ">
+                                            {{form.is_default.label}}
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="help-block validate-email" id="checkbox" onclick="change()">
+                                                {{form.is_default}}
+                                                {% for error in form.is_default.errors %}
+                                                <ul role="alert" class="danger">
+                                                    <li>{{ error }}</li>
+                                                </ul>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div>
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-circle-inline inlineform-remove"
+                            data-button="{% if not form.instance.pk %}new{% endif %}" type="button">
+                            <i class="ft-minus danger font-medium-3"></i>
+                        </button>
+
+                        {% comment %} {{form.DELETE |add_attr:"class:btn-inline-remove"}} {% endcomment %}
+
+                        {% for hidden in form.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button class="btn btn-default pull-right" type="button" id="add-email-inline"><i class="fa fa-plus"
+                id=""></i>
+            Add more</button>
+
+    </div>
+</div>
+
+

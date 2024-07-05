@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% block title %}Vendors{% endblock title %}
+{% block bodycontent %}
+
+{% if request.user.role == "super admin" %}
+
+<div class="vendor-list-filter px-2">
+  <div class="row border rounded py-2 mb-2 mx-n2">
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      {% if request.user.role != "company admin" %}
+      <label for="users-list-company">Company</label>
+      <fieldset class="form-group">
+        <select id="company-list" class="form-control">
+          <option value="">All</option>
+          {% comment %} <option value="Active">Active</option> {% endcomment %}
+          {% for company in companies %}
+          <option value="{{company.id}}">{{company.company_name|title}}</option>
+          {% endfor %}
+        </select>
+      </fieldset>
+      {% endif %}
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-8">
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-1 d-flex align-items-center">
+      <button type="reset" class="btn btn-primary btn-block vendor-list-clear glow mb-0">Clear</button>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+<section id="extended">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex flex-sm-row flex-column justify-content-between">
+            <h4 class="card-title">Vendors</h4>
+            <a href="{% url 'vendors:vendor_create' %}"><button type="button" class="btn btn-primary ">Add</button></a>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <div class="">
+            <table class="table table-striped table-bordered file-export dataTable" id="table">
+              <thead>
+                <tr>
+                  <th>Sr No.</th>
+                  <th>Email</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Phone</th>
+                  <th>Company</th>
+                  <th>City</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% comment %} {% for vendor in vendor_list %}
+                <tr>
+                  <td>{{vendor.id|default:"-"}}</td>
+                  <td>{{vendor.email|default:"-"}}</td>
+                  <td>{{vendor.first_name|default:"-"}}</td>
+                  <td>{{vendor.last_name|default:"-"}}</td>
+                  <td>{{vendor.phone|default:"-"}}</td>
+                  <td>{{vendor.city|default:"-"}}</td>
+                  <td class="text-truncate">
+                    <a href="{% url 'vendors:vendor_update' vendor.id %}" class="success p-0">
+                      <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                    </a>
+                    
+                  </td>
+                </tr>
+                {% endfor %} {% endcomment %}
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+  
+  <script>
+    $('#company-list').select2({
+      width: "100%",
+    });
+
+    var role = true;
+    if ("{{request.user.role}}" == "company admin"){
+      role = false;
+    }
+    var i = 1;
+
+    function set_filters(){
+      var data = {}
+      data["company"] = $("#company-list").val()
+      return data
+    }
+
+    function initialize_datatable(){
+      $('#table').DataTable({
+          columnDefs: [{
+              orderable: false,
+              targets: [0, -1]
+          },
+          {
+            targets: [5],
+            visible: role // new variable true or false based on user role.
+          }
+          ],
+
+          // Ajax for pagination
+          processing: true,
+          serverSide: true,
+          ajax: {
+              url: '{% url "vendors:vendor_list_ajax" %}',
+              type: 'get',
+              data: set_filters()
+          },
+          columns: [
+              // data: json key from prepare_results, name: model field name
+              { data: 'id', name: 'id' },
+              { data: 'email', name: 'email' },
+              { data: 'first_name', name: 'first_name' },
+              { data: 'last_name', name: 'last_name' },
+              { data: 'phone', name: 'phone' },
+              { data: 'company', name: 'company' },
+              { data: 'city', name: 'city' },
+              { data: 'actions', name: 'actions' }
+          ],
+          rowCallback: function (nRow, aData, iDisplayIndex) {
+            var oSettings = this.fnSettings ();
+            $("td:first", nRow).html(oSettings._iDisplayStart+iDisplayIndex +1);
+            return nRow;
+          },
+      });
+    }
+
+    initialize_datatable();
+
+    $("#company-list").on("change", function () {
+      // t.search($(this).val()).draw();
+      $("#table").DataTable().destroy();
+      initialize_datatable()
+    });
+
+    $(".vendor-list-clear").on("click",function(){
+      $('#company-list').val(null).trigger('change');
+      $("#table").DataTable().destroy();
+      initialize_datatable()
+    })
+</script>
+<script>
+  
+  $(document).on('click', '.ajax-delete-btn' , function (e){
+    var id = $(this).data("id")
+    var name = $(this).data("title")
+    if(name == "None"){
+        name = ""
+    }
+    var url = $(this).data("url")
+    var delete_ele = $(this)
+
+
+    Swal.fire({
+        html: `Are you sure you want to delete <b>${name}</b> ?`,
+        icon: 'question',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: "#7442DB",
+    }).then((result) => {
+        
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    "id": id,
+                    "csrfmiddlewaretoken": '{{ csrf_token }}'
+                },
+                success: function (data) {
+                  $('#table').DataTable().ajax.reload(null, false);
+                  if (data["message"]){
+                    $.toast({
+                        text: data.message,
+                        position: 'bottom-right',
+                        stack: false,
+                        icon: 'success',                    
+                    })
+                }
+              }    
+            });
+        }
+    })
+})
+
+</script>
+
+{% endblock script %}

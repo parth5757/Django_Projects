@@ -1,0 +1,5 @@
+{% if warehouse.status == 'active' %}
+<center><span class="badge bg-light-success">{{warehouse.status.title}}</span></center>
+{% elif warehouse.status == 'inactive' %}
+<center><span class="badge bg-light-danger">{{warehouse.status.title}}</span></center>
+{% endif %}

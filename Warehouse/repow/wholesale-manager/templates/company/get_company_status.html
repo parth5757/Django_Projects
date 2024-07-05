@@ -1,0 +1,5 @@
+{% if company.status == 'active' %}
+<center><span class="badge bg-light-success">{{company.status.title}}</span></center>
+{% elif company.status == 'inactive' %}
+<center><span class="badge bg-light-danger">{{company.status.title}}</span></center>
+{% endif %}

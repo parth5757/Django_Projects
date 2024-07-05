@@ -1,0 +1,7 @@
+{% if product.is_type_a_invoice == True %}
+
+<center><span class="badge bg-light-success">{{product.is_type_a_invoice}}</span></center>
+{% elif product.is_type_a_invoice == False %}
+
+<center><span class="badge bg-light-danger">{{product.is_type_a_invoice}}</span></center>
+{% endif %}

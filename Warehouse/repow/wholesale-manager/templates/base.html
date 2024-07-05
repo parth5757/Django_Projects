@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+<!--
+Template Name: Apex - Bootstrap 4 Admin Template
+Author: PixInvent
+Website: http://www.pixinvent.com/
+Contact: hello@pixinvent.com
+Follow: www.twitter.com/pixinvents
+Like: www.facebook.com/pixinvents
+Purchase: https://1.envato.market/apex_admin
+Renew Support: https://1.envato.market/apex_admin
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
+-->
+<html class="loading" lang="en">
+  <!-- BEGIN : Head-->
+  
+<!-- Mirrored from pixinvent.com/apex-angular-4-bootstrap-admin-template/html-demo-1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Dec 2020 11:33:19 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Apex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Apex admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://pixinvent.com/apex-angular-4-bootstrap-admin-template/app-assets/img/ico/favicon.ico"> 
+    <link rel="shortcut icon" type="image/png" href="{% static 'app-assets/img/ico/favicon-32.png' %}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet"> 
+    <!-- BEGIN VENDOR CSS-->
+
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/feather/style.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/simple-line-icons/style.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/fonts/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/perfect-scrollbar.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/prism.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/switchery.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/chartist.min.css' %}">
+    <!-- END VENDOR CSS-->
+
+   
+    <!-- BEGIN APEX CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/bootstrap-extended.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/colors.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/components.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/themes/layout-dark.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app-assets/css/plugins/switchery.min.css' %}">
+    <!-- END APEX CSS-->
+    
+    <!-- BEGIN PICKADATE CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/pickadate/pickadate.css' %}">
+    <!-- END PICKADATE CSS-->
+
+   
+
+    <!-- BEGIN DataTables CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/datatables/dataTables.bootstrap4.min.css' %}">
+    <!-- END: DataTables CSS--> 
+   
+
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/css/pages/dashboard1.min.css' %}">
+    <!-- END Page Level CSS-->
+
+    <!-- SELECT2 CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app-assets/vendors/css/select2.min.css' %}">
+    <!-- END: SELECT2 CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'cdns/toast.css' %}">
+    <!-- END: Custom CSS-->
+
+    {% block lazy_cdns %}{% endblock lazy_cdns %}
+    
+    {% block style %}
+      
+    {% endblock style %}
+      
+    
+  </head>
+  <!-- END : Head-->
+  <!-- BEGIN : Body-->
+  <body class="vertical-layout vertical-menu 2-columns  navbar-sticky" data-menu="vertical-menu" data-col="2-columns">
+    {% include 'navbar.html' %}
+    <!-- Navbar (Header) Ends-->
+  <div class="wrapper">
+  {% block sidebar %}
+      {% include 'sidebar.html' %}
+  {% endblock sidebar %}
+
+  {% comment %} {% block messages %}
+      {% include 'messages.html' %}
+  {% endblock messages %} {% endcomment %}
+  
+  {% block bodycontent %} {% endblock bodycontent %}
+  
+  
+    
+        </div>
+        <!-- END : End Main Content-->
+        <!-- BEGIN : Footer-->
+  {% block footer %}
+        {% include 'footer.html' %}
+  {% endblock footer %}
+        <!-- End : Footer--><!-- Scroll to top button -->
+        <button class="btn btn-primary scroll-top" type="button"><i class="ft-arrow-up"></i></button>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+
+  <!-- END : Head-->
+
+  <!-- BEGIN : Body-->
+ 
+      
+  <!-- BEGIN VENDOR JS-->
+  
+  <script src="{% static 'app-assets/vendors/js/vendors.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/switchery.min.js' %}"></script>
+  <script src="{% static 'app-assets/vendors/js/toastr.min.js' %}"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="{% static 'app-assets/vendors/js/chartist.min.js' %}"></script> 
+    <!-- BEGIN APEX JS-->
+    <script src="{% static 'app-assets/js/core/app-menu.min.js' %}"></script>
+    <script src="{% static 'app-assets/js/core/app.min.js' %}"></script>
+    <script src="{% static 'app-assets/js/notification-sidebar.min.js' %}"></script>
+    <script src="{% static 'app-assets/js/customizer.min.js' %}"></script>
+    <script src="{% static 'app-assets/js/scroll-top.min.js' %}"></script>
+    <!-- END APEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="{% static 'app-assets/js/dashboard1.min.js' %}"></script> 
+    <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN: Custom CSS-->
+    <script src="{% static 'assets/js/scripts.js' %}"></script>
+    <!-- END: Custom CSS-->
+
+    <!-- Pickeradate js -->
+    <script src="{% static 'app-assets/vendors/js/pickadate/picker.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/pickadate/picker.date.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/pickadate/picker.time.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/pickadate/legacy.js' %}"></script>
+    <script src="{% static 'app-assets/js/form-datetimepicker.min.js' %}"></script>
+
+    <!-- DataTable js -->
+    {% comment %} <script src="{% static 'app-assets/js/data-tables/dt-cdn.js' %}"></script>  {% endcomment %}
+    <script src="{% static 'app-assets/vendors/js/datatable/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/pdfmake.min.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/buttons.print.min.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/jszip.min.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/vfs_fonts.js' %}"></script>
+    <script src="{% static 'app-assets/vendors/js/datatable/dataTables.bootstrap4.min.js' %}"></script>
+    <!-- Sweetalert js -->
+    <script src="{% static 'app-assets/js/form-inputs.min.js' %}"></script>
+    
+
+    <!-- Sweetalert js -->
+    <script src="{% static 'cdns/sweetalert2.js' %}"></script>
+    <script src="{% static 'app-assets/js/select2.min.js' %}"></script>
+    <script src="{% static 'cdns/toast.js' %}"></script>
+    <script src="{% static 'cdns/htmx.js' %}"></script>
+    <script>
+      '{% if messages %}'
+      '{% for message in messages %}'
+          '{% if 'success' in message.tags %}'
+              $.toast({
+                  //heading: '{{message.title}}',
+                  text: '{{message.message}}',
+                  position: 'bottom-right',
+                  stack: false,
+                  icon: 'success',                    
+              })
+          '{% endif %}'
+          '{% if 'warning' in message.tags %}'
+              $.toast({
+                  //heading: 'UPDATED!',
+                  text: '{{message}}',
+                  position: 'bottom-right',
+                  stack: false,
+                  icon: 'warning'
+              })
+          '{% endif %}'
+          '{% if 'error' in message.tags %}'
+              $.toast({
+                  //heading: 'UPDATED!',
+                  text: '{{message}}',
+                  position: 'bottom-right',
+                  stack: false,
+                  icon: 'error'
+              })
+          '{% endif %}'
+      '{% endfor %}'
+  '{% endif %}'
+  </script>   
+
+    {% block script %} {% endblock script %}
+  </body>
+  <!-- END : Body-->
+<!-- Mirrored from pixinvent.com/apex-angular-4-bootstrap-admin-template/html-demo-1/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Dec 2020 11:33:57 GMT -->
+</html>

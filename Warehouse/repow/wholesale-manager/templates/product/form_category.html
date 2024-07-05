@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% block title %}{% if form.instance.id %}Update|Category|Product{% else %}Add|Category|Product{% endif %}{% endblock title %} -->
+{% block bodycontent %}
+<section id="action-form-layout">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            {% if form.instance.id %} 
+            <h4 class="card-title">Update Category</h4>
+            {% else %}
+            <h4 class="card-title">Add Category</h4>
+            {% endif %}
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {% if user.role == "super admin" %}
+                <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.company.label}}{% if form.company.field.required %}<span style="color: red;">*</span>{% endif %}</label></label>
+                    <div class="col-md-9">
+                      {{form.company}}
+                      {% if form.company.errors %}
+                      {% for error in form.company.errors %}
+                        <p style="color: red;">{{error}}</p>
+                      {% endfor %}
+                  {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% if user.role == "company admin" %}
+              <input type="hidden" name="company" value="{{user.get_company_id}}" id="id_company">
+              {% endif %}
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.name.label}}{% if form.name.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        {{form.name}}
+                        {% if form.name.errors %}
+                            {% for error in form.name.errors %}
+                              <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.status.label}}{% if form.status.field.required %}<span style="color: red;">*</span>{% endif %}</label>
+                      <div class="col-md-9">
+                        {{form.status}}
+                        {% if form.status.errors %}
+                        {% for error in form.status.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                    {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-1">{{form.description.label}}</label></label>
+                      <div class="col-md-9">
+                        {{form.description}}
+                        {% if form.description.errors %}
+                        {% for error in form.description.errors %}
+                          <p style="color: red;">{{error}}</p>
+                        {% endfor %}
+                    {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="horizontal-form-2">{{form.is_type_a_invoice.label}}</label>
+                      <div class="col-md-9">
+                        {{form.is_type_a_invoice}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% if form.instance.id %} 
+                      <button type="submit" class="btn btn-primary mr-2"><i class="ft-edit mr-1"></i>Update</button>
+                      <a href="{% url 'product:list_category' %}"><button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button></a>
+
+                     {% else %}
+                      <button type="submit" class="btn btn-primary mr-2"><i class="ft-check-square mr-1"></i>Save</button>
+                      <a href="{% url 'product:list_category' %}"><button type="button" class="btn btn-secondary"><i class="ft-x mr-1"></i>Cancel</button></a>
+
+                    {% endif %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+
+  {% block script %}
+  <script src="{% static 'webapp/custom.js' %}"></script>
+  {% endblock script %}
+
+  
