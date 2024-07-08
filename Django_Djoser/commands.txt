@@ -1,0 +1,4 @@
+virtualenv env
+pip installl django djangorestframework djoser django-cors-headers
+django-admin startproject djoserauthapi
+django-admin startapp account  
