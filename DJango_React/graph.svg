@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="588pt" height="876pt" viewBox="0.00 0.00 587.50 876.20">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 872.2)">
+<title>model_graph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-872.2 583.5,-872.2 583.5,4 -4,4"/>
+<!-- django_contrib_admin_models_LogEntry -->
+<g id="node1" class="node">
+<title>django_contrib_admin_models_LogEntry</title>
+<polygon fill="#ffffff" stroke="transparent" points="10.5,-729.7 10.5,-857.7 188.5,-857.7 188.5,-729.7 10.5,-729.7"/>
+<polygon fill="#1b563f" stroke="transparent" points="11.5,-834.7 11.5,-856.7 187.5,-856.7 187.5,-834.7 11.5,-834.7"/>
+<text text-anchor="start" x="66.337" y="-843.7" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="74.337" y="-843.7" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    LogEntry    </text>
+<text text-anchor="start" x="13.5" y="-826.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-826.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="27.7232" y="-826.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-826.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-826.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">AutoField</text>
+<text text-anchor="start" x="126.9432" y="-826.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.5" y="-813.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-813.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#7b7b7b">content_type</text>
+<text text-anchor="start" x="62.8232" y="-813.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-813.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-813.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#7b7b7b">ForeignKey (id)</text>
+<text text-anchor="start" x="146.2608" y="-813.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.5" y="-800.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-800.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">user</text>
+<text text-anchor="start" x="34.8256" y="-800.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-800.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-800.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">ForeignKey (id)</text>
+<text text-anchor="start" x="146.2608" y="-800.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.5" y="-787.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-787.5" font-family="Roboto" font-size="8.00" fill="#000000">action_flag</text>
+<text text-anchor="start" x="57.4864" y="-787.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.228" y="-787.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.228" y="-787.5" font-family="Roboto" font-size="8.00" fill="#000000">PositiveSmallIntegerField</text>
+<text text-anchor="start" x="177.772" y="-787.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.5" y="-774.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-774.5" font-family="Roboto" font-size="8.00" fill="#000000">action_time</text>
+<text text-anchor="start" x="59.2696" y="-774.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-774.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-774.5" font-family="Roboto" font-size="8.00" fill="#000000">DateTimeField</text>
+<text text-anchor="start" x="142.9304" y="-774.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.1236" y="-761.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.1236" y="-761.5" font-family="Roboto" font-size="8.00" fill="#7b7b7b">change_message</text>
+<text text-anchor="start" x="74.8764" y="-761.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-761.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-761.5" font-family="Roboto" font-size="8.00" fill="#7b7b7b">TextField</text>
+<text text-anchor="start" x="125.6064" y="-761.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.5" y="-748.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-748.5" font-family="Roboto" font-size="8.00" fill="#7b7b7b">object_id</text>
+<text text-anchor="start" x="51.272" y="-748.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-748.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-748.5" font-family="Roboto" font-size="8.00" fill="#7b7b7b">TextField</text>
+<text text-anchor="start" x="125.6064" y="-748.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="13.5" y="-735.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="21.5" y="-735.5" font-family="Roboto" font-size="8.00" fill="#000000">object_repr</text>
+<text text-anchor="start" x="57.9264" y="-735.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="86.5" y="-735.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="94.5" y="-735.5" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="126.4944" y="-735.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="10.5,-729.7 10.5,-857.7 188.5,-857.7 188.5,-729.7 10.5,-729.7"/>
+</g>
+<!-- django_contrib_auth_models_User -->
+<g id="node5" class="node">
+<title>django_contrib_auth_models_User</title>
+<polygon fill="#ffffff" stroke="transparent" points="139,-485 139,-660 268,-660 268,-485 139,-485"/>
+<polygon fill="#1b563f" stroke="transparent" points="140.5,-628.5 140.5,-658.5 267.5,-658.5 267.5,-628.5 140.5,-628.5"/>
+<text text-anchor="start" x="185.562" y="-645.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="193.562" y="-645.5" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    User</text>
+<text text-anchor="start" x="166.9865" y="-635.5" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">&lt;</text>
+<text text-anchor="start" x="172.6255" y="-635.5" font-family="Roboto" font-weight="bold" font-style="italic" font-size="10.00" fill="#ffffff">AbstractUser</text>
+<text text-anchor="start" x="225.3745" y="-635.5" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">&gt;    </text>
+<text text-anchor="start" x="142.5" y="-620.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-620.3" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="156.7232" y="-620.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-620.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-620.3" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">AutoField</text>
+<text text-anchor="start" x="241.9432" y="-620.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-607.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-607.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">date_joined</text>
+<text text-anchor="start" x="187.8232" y="-607.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.2848" y="-607.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.2848" y="-607.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">DateTimeField</text>
+<text text-anchor="start" x="257.7152" y="-607.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-594.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-594.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">email</text>
+<text text-anchor="start" x="168.272" y="-594.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-594.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-594.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">EmailField</text>
+<text text-anchor="start" x="245.0528" y="-594.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-581.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-581.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">first_name</text>
+<text text-anchor="start" x="184.7096" y="-581.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-581.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-581.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">CharField</text>
+<text text-anchor="start" x="241.4944" y="-581.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-568.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-568.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">is_active</text>
+<text text-anchor="start" x="178.9344" y="-568.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-568.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-568.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">BooleanField</text>
+<text text-anchor="start" x="252.6056" y="-568.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-555.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-555.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">is_staff</text>
+<text text-anchor="start" x="174.0464" y="-555.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-555.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-555.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">BooleanField</text>
+<text text-anchor="start" x="252.6056" y="-555.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.0072" y="-542.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.0072" y="-542.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">is_superuser</text>
+<text text-anchor="start" x="189.9928" y="-542.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-542.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-542.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">BooleanField</text>
+<text text-anchor="start" x="252.6056" y="-542.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-529.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-529.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">last_login</text>
+<text text-anchor="start" x="182.0552" y="-529.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.2848" y="-529.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.2848" y="-529.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">DateTimeField</text>
+<text text-anchor="start" x="257.7152" y="-529.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-516.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-516.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">last_name</text>
+<text text-anchor="start" x="182.9344" y="-516.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-516.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-516.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">CharField</text>
+<text text-anchor="start" x="241.4944" y="-516.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-503.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-503.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">password</text>
+<text text-anchor="start" x="180.712" y="-503.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-503.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-503.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="241.4944" y="-503.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="142.5" y="-490.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="150.5" y="-490.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">username</text>
+<text text-anchor="start" x="181.1512" y="-490.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="201.5" y="-490.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="209.5" y="-490.3" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="241.4944" y="-490.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="139,-485 139,-660 268,-660 268,-485 139,-485"/>
+</g>
+<!-- django_contrib_admin_models_LogEntry&#45;&gt;django_contrib_auth_models_User -->
+<g id="edge1" class="edge">
+<title>django_contrib_admin_models_LogEntry-&gt;django_contrib_auth_models_User</title>
+<path fill="none" stroke="#000000" d="M135.019,-718.1539C143.2016,-700.7501 151.9914,-682.0548 160.455,-664.0535"/>
+<ellipse fill="#000000" stroke="#000000" cx="133.254" cy="-721.9079" rx="4" ry="4"/>
+<text text-anchor="middle" x="176.1564" y="-689.2" font-family="Roboto" font-size="8.00" fill="#000000"> user (logentry)</text>
+</g>
+<!-- django_contrib_contenttypes_models_ContentType -->
+<g id="node6" class="node">
+<title>django_contrib_contenttypes_models_ContentType</title>
+<polygon fill="#ffffff" stroke="transparent" points="8,-4 8,-67 113,-67 113,-4 8,-4"/>
+<polygon fill="#1b563f" stroke="transparent" points="9.5,-43.5 9.5,-65.5 112.5,-65.5 112.5,-43.5 9.5,-43.5"/>
+<text text-anchor="start" x="20.893" y="-52.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="28.893" y="-52.5" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    ContentType    </text>
+<text text-anchor="start" x="11.5" y="-35.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="19.5" y="-35.3" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="25.7232" y="-35.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="62.2784" y="-35.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="70.2784" y="-35.3" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">AutoField</text>
+<text text-anchor="start" x="102.7216" y="-35.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="11.45" y="-22.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="19.45" y="-22.3" font-family="Roboto" font-size="8.00" fill="#000000">app_label</text>
+<text text-anchor="start" x="50.55" y="-22.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="62.5" y="-22.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="70.5" y="-22.3" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="102.4944" y="-22.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="11.5" y="-9.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="19.5" y="-9.3" font-family="Roboto" font-size="8.00" fill="#000000">model</text>
+<text text-anchor="start" x="39.4976" y="-9.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="62.5" y="-9.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="70.5" y="-9.3" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="102.4944" y="-9.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="8,-4 8,-67 113,-67 113,-4 8,-4"/>
+</g>
+<!-- django_contrib_admin_models_LogEntry&#45;&gt;django_contrib_contenttypes_models_ContentType -->
+<g id="edge2" class="edge">
+<title>django_contrib_admin_models_LogEntry-&gt;django_contrib_contenttypes_models_ContentType</title>
+<path fill="none" stroke="#000000" d="M70.9485,-717.8034C57.5578,-675.6353 44.5,-621.8608 44.5,-572.5 44.5,-572.5 44.5,-572.5 44.5,-158.6 44.5,-128.967 49.1158,-95.6536 53.389,-71.1621"/>
+<ellipse fill="#000000" stroke="#000000" cx="72.2189" cy="-721.7324" rx="4" ry="4"/>
+<text text-anchor="middle" x="83.1552" y="-338.4" font-family="Roboto" font-size="8.00" fill="#000000"> content_type (logentry)</text>
+</g>
+<!-- django_contrib_auth_models_AbstractUser -->
+<g id="node2" class="node">
+<title>django_contrib_auth_models_AbstractUser</title>
+<polygon fill="#ffffff" stroke="transparent" points="387.5,-259.8 387.5,-421.8 567.5,-421.8 567.5,-259.8 387.5,-259.8"/>
+<polygon fill="#1b563f" stroke="transparent" points="388.5,-390.8 388.5,-420.8 566.5,-420.8 566.5,-390.8 388.5,-390.8"/>
+<text text-anchor="start" x="442.1255" y="-407.8" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="450.1255" y="-407.8" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    AbstractUser</text>
+<text text-anchor="start" x="393.1295" y="-397.8" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">&lt;</text>
+<text text-anchor="start" x="398.7685" y="-397.8" font-family="Roboto" font-weight="bold" font-style="italic" font-size="10.00" fill="#ffffff">AbstractBaseUser,PermissionsMixin</text>
+<text text-anchor="start" x="546.2315" y="-397.8" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">&gt;    </text>
+<text text-anchor="start" x="390.5" y="-382.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-382.6" font-family="Roboto" font-size="8.00" fill="#000000">date_joined</text>
+<text text-anchor="start" x="435.8232" y="-382.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-382.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-382.6" font-family="Roboto" font-size="8.00" fill="#000000">DateTimeField</text>
+<text text-anchor="start" x="530.9304" y="-382.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-369.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-369.6" font-family="Roboto" font-size="8.00" fill="#7b7b7b">email</text>
+<text text-anchor="start" x="416.272" y="-369.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-369.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-369.6" font-family="Roboto" font-size="8.00" fill="#7b7b7b">EmailField</text>
+<text text-anchor="start" x="518.0528" y="-369.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-356.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-356.6" font-family="Roboto" font-size="8.00" fill="#7b7b7b">first_name</text>
+<text text-anchor="start" x="432.7096" y="-356.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-356.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-356.6" font-family="Roboto" font-size="8.00" fill="#7b7b7b">CharField</text>
+<text text-anchor="start" x="514.4944" y="-356.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-343.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-343.6" font-family="Roboto" font-size="8.00" fill="#000000">is_active</text>
+<text text-anchor="start" x="426.9344" y="-343.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-343.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-343.6" font-family="Roboto" font-size="8.00" fill="#000000">BooleanField</text>
+<text text-anchor="start" x="525.6056" y="-343.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-330.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-330.6" font-family="Roboto" font-size="8.00" fill="#000000">is_staff</text>
+<text text-anchor="start" x="422.0464" y="-330.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-330.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-330.6" font-family="Roboto" font-size="8.00" fill="#000000">BooleanField</text>
+<text text-anchor="start" x="525.6056" y="-330.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-317.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-317.6" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">is_superuser</text>
+<text text-anchor="start" x="438.4856" y="-317.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-317.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-317.6" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">BooleanField</text>
+<text text-anchor="start" x="525.6056" y="-317.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-304.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-304.6" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">last_login</text>
+<text text-anchor="start" x="430.0552" y="-304.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-304.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-304.6" font-family="Roboto" font-style="italic" font-size="8.00" fill="#7b7b7b">DateTimeField</text>
+<text text-anchor="start" x="530.9304" y="-304.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-291.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-291.6" font-family="Roboto" font-size="8.00" fill="#7b7b7b">last_name</text>
+<text text-anchor="start" x="430.9344" y="-291.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-291.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-291.6" font-family="Roboto" font-size="8.00" fill="#7b7b7b">CharField</text>
+<text text-anchor="start" x="514.4944" y="-291.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-278.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-278.6" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">password</text>
+<text text-anchor="start" x="428.712" y="-278.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-278.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-278.6" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="514.4944" y="-278.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="390.5" y="-265.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="398.5" y="-265.6" font-family="Roboto" font-size="8.00" fill="#000000">username</text>
+<text text-anchor="start" x="429.1512" y="-265.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="474.5" y="-265.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="482.5" y="-265.6" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="514.4944" y="-265.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="387.5,-259.8 387.5,-421.8 567.5,-421.8 567.5,-259.8 387.5,-259.8"/>
+</g>
+<!-- django_contrib_auth_base_user_AbstractBaseUser -->
+<g id="node11" class="node">
+<title>django_contrib_auth_base_user_AbstractBaseUser</title>
+<polygon fill="#ffffff" stroke="transparent" points="469.5,-147.6 469.5,-169.6 571.5,-169.6 571.5,-147.6 469.5,-147.6"/>
+<polygon fill="#1b563f" stroke="transparent" points="469.5,-147.6 469.5,-169.6 571.5,-169.6 571.5,-147.6 469.5,-147.6"/>
+<text text-anchor="start" x="473.189" y="-155.8" font-family="Roboto" font-size="8.00" fill="#000000">  </text>
+<text text-anchor="start" x="477.189" y="-155.8" font-family="Roboto" font-size="12.00" fill="#ffffff">AbstractBaseUser</text>
+<text text-anchor="start" x="563.811" y="-155.8" font-family="Roboto" font-size="8.00" fill="#000000">  </text>
+</g>
+<!-- django_contrib_auth_models_AbstractUser&#45;&gt;django_contrib_auth_base_user_AbstractBaseUser -->
+<g id="edge3" class="edge">
+<title>django_contrib_auth_models_AbstractUser-&gt;django_contrib_auth_base_user_AbstractBaseUser</title>
+<path fill="none" stroke="#000000" d="M497.6151,-255.5681C503.4894,-230.6775 509.5021,-205.2002 513.8895,-186.6102"/>
+<polygon fill="none" stroke="#000000" points="517.3193,-187.3147 516.2099,-176.7781 510.5064,-185.7068 517.3193,-187.3147"/>
+<text text-anchor="middle" x="522.2688" y="-230.6" font-family="Roboto" font-size="8.00" fill="#000000"> abstract</text>
+<text text-anchor="middle" x="522.2688" y="-221" font-family="Roboto" font-size="8.00" fill="#000000">inheritance</text>
+</g>
+<!-- django_contrib_auth_models_PermissionsMixin -->
+<g id="node12" class="node">
+<title>django_contrib_auth_models_PermissionsMixin</title>
+<polygon fill="#ffffff" stroke="transparent" points="331.5,-147.6 331.5,-169.6 435.5,-169.6 435.5,-147.6 331.5,-147.6"/>
+<polygon fill="#1b563f" stroke="transparent" points="331.5,-147.6 331.5,-169.6 435.5,-169.6 435.5,-147.6 331.5,-147.6"/>
+<text text-anchor="start" x="335.8332" y="-155.8" font-family="Roboto" font-size="8.00" fill="#000000">  </text>
+<text text-anchor="start" x="339.8332" y="-155.8" font-family="Roboto" font-size="12.00" fill="#ffffff">PermissionsMixin</text>
+<text text-anchor="start" x="427.1668" y="-155.8" font-family="Roboto" font-size="8.00" fill="#000000">  </text>
+</g>
+<!-- django_contrib_auth_models_AbstractUser&#45;&gt;django_contrib_auth_models_PermissionsMixin -->
+<g id="edge4" class="edge">
+<title>django_contrib_auth_models_AbstractUser-&gt;django_contrib_auth_models_PermissionsMixin</title>
+<path fill="none" stroke="#000000" d="M433.5274,-255.5681C420.5068,-230.3301 407.175,-204.4891 397.5515,-185.836"/>
+<polygon fill="none" stroke="#000000" points="400.5738,-184.0604 392.8784,-176.7781 394.3529,-187.2698 400.5738,-184.0604"/>
+<text text-anchor="middle" x="440.2688" y="-230.6" font-family="Roboto" font-size="8.00" fill="#000000"> abstract</text>
+<text text-anchor="middle" x="440.2688" y="-221" font-family="Roboto" font-size="8.00" fill="#000000">inheritance</text>
+</g>
+<!-- django_contrib_auth_models_Permission -->
+<g id="node3" class="node">
+<title>django_contrib_auth_models_Permission</title>
+<polygon fill="#ffffff" stroke="transparent" points="90.5,-120.6 90.5,-196.6 224.5,-196.6 224.5,-120.6 90.5,-120.6"/>
+<polygon fill="#1b563f" stroke="transparent" points="91.5,-173.6 91.5,-195.6 223.5,-195.6 223.5,-173.6 91.5,-173.6"/>
+<text text-anchor="start" x="121.279" y="-182.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="129.279" y="-182.6" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    Permission    </text>
+<text text-anchor="start" x="93.5" y="-165.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="101.5" y="-165.4" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="107.7232" y="-165.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="154.5" y="-165.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="162.5" y="-165.4" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">AutoField</text>
+<text text-anchor="start" x="194.9432" y="-165.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="93.3384" y="-152.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="101.3384" y="-152.4" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">content_type</text>
+<text text-anchor="start" x="142.6616" y="-152.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="154.1196" y="-152.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="162.1196" y="-152.4" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">ForeignKey (id)</text>
+<text text-anchor="start" x="213.8804" y="-152.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="93.5" y="-139.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="101.5" y="-139.4" font-family="Roboto" font-size="8.00" fill="#000000">codename</text>
+<text text-anchor="start" x="133.928" y="-139.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="154.5" y="-139.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="162.5" y="-139.4" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="194.4944" y="-139.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="93.5" y="-126.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="101.5" y="-126.4" font-family="Roboto" font-size="8.00" fill="#000000">name</text>
+<text text-anchor="start" x="118.8256" y="-126.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="154.5" y="-126.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="162.5" y="-126.4" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="194.4944" y="-126.4" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="90.5,-120.6 90.5,-196.6 224.5,-196.6 224.5,-120.6 90.5,-120.6"/>
+</g>
+<!-- django_contrib_auth_models_Permission&#45;&gt;django_contrib_contenttypes_models_ContentType -->
+<g id="edge5" class="edge">
+<title>django_contrib_auth_models_Permission-&gt;django_contrib_contenttypes_models_ContentType</title>
+<path fill="none" stroke="#000000" d="M119.4112,-110.2625C109.146,-97.2353 98.2278,-83.3792 88.6154,-71.1805"/>
+<ellipse fill="#000000" stroke="#000000" cx="121.9137" cy="-113.4384" rx="4" ry="4"/>
+<text text-anchor="middle" x="152.378" y="-91.4" font-family="Roboto" font-size="8.00" fill="#000000"> content_type (permission)</text>
+</g>
+<!-- django_contrib_auth_models_Group -->
+<g id="node4" class="node">
+<title>django_contrib_auth_models_Group</title>
+<polygon fill="#ffffff" stroke="transparent" points="262,-315.8 262,-365.8 353,-365.8 353,-315.8 262,-315.8"/>
+<polygon fill="#1b563f" stroke="transparent" points="263.5,-342.8 263.5,-364.8 352.5,-364.8 352.5,-342.8 263.5,-342.8"/>
+<text text-anchor="start" x="281.226" y="-351.8" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="289.226" y="-351.8" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    Group    </text>
+<text text-anchor="start" x="265.5" y="-334.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="273.5" y="-334.6" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="279.7232" y="-334.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="302.2784" y="-334.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="310.2784" y="-334.6" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">AutoField</text>
+<text text-anchor="start" x="342.7216" y="-334.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="265.3372" y="-321.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="273.3372" y="-321.6" font-family="Roboto" font-size="8.00" fill="#000000">name</text>
+<text text-anchor="start" x="290.6628" y="-321.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="302.5" y="-321.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="310.5" y="-321.6" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="342.4944" y="-321.6" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="262,-315.8 262,-365.8 353,-365.8 353,-315.8 262,-315.8"/>
+</g>
+<!-- django_contrib_auth_models_Group&#45;&gt;django_contrib_auth_models_Permission -->
+<g id="edge6" class="edge">
+<title>django_contrib_auth_models_Group-&gt;django_contrib_auth_models_Permission</title>
+<path fill="none" stroke="#000000" d="M279.3348,-305.1712C267.1725,-289.8962 252.7263,-271.8987 239.5,-255.8 226.5009,-239.9779 212.1574,-222.8617 199.1499,-207.466"/>
+<ellipse fill="#000000" stroke="#000000" cx="281.9075" cy="-308.4066" rx="4" ry="4"/>
+<ellipse fill="#000000" stroke="#000000" cx="196.2483" cy="-204.0359" rx="4" ry="4"/>
+<text text-anchor="middle" x="257.6036" y="-225.8" font-family="Roboto" font-size="8.00" fill="#000000"> permissions (group)</text>
+</g>
+<!-- django_contrib_auth_models_User&#45;&gt;django_contrib_auth_models_AbstractUser -->
+<g id="edge9" class="edge">
+<title>django_contrib_auth_models_User-&gt;django_contrib_auth_models_AbstractUser</title>
+<path fill="none" stroke="#000000" d="M276.3307,-488.3118C279.0405,-485.7986 281.7674,-483.3539 284.5,-481 318.6287,-451.6014 332.8749,-452.023 369.5,-425.8 370.1184,-425.3572 370.7381,-424.9123 371.3591,-424.4654"/>
+<polygon fill="none" stroke="#000000" points="373.4618,-427.2639 379.4894,-418.5507 369.3438,-421.6033 373.4618,-427.2639"/>
+<text text-anchor="middle" x="358.2688" y="-455.8" font-family="Roboto" font-size="8.00" fill="#000000"> abstract</text>
+<text text-anchor="middle" x="358.2688" y="-446.2" font-family="Roboto" font-size="8.00" fill="#000000">inheritance</text>
+</g>
+<!-- django_contrib_auth_models_User&#45;&gt;django_contrib_auth_models_Permission -->
+<g id="edge8" class="edge">
+<title>django_contrib_auth_models_User-&gt;django_contrib_auth_models_Permission</title>
+<path fill="none" stroke="#000000" d="M175.1374,-472.6601C171.5987,-457.0833 168.4687,-441.086 166.3048,-425.8 155.6925,-350.834 155.0297,-262.913 155.9455,-208.9862"/>
+<ellipse fill="#000000" stroke="#000000" cx="176.1158" cy="-476.8654" rx="4" ry="4"/>
+<ellipse fill="#000000" stroke="#000000" cx="156.0219" cy="-204.9556" rx="4" ry="4"/>
+<text text-anchor="middle" x="205.5976" y="-338.4" font-family="Roboto" font-size="8.00" fill="#000000"> user_permissions (user)</text>
+</g>
+<!-- django_contrib_auth_models_User&#45;&gt;django_contrib_auth_models_Group -->
+<g id="edge7" class="edge">
+<title>django_contrib_auth_models_User-&gt;django_contrib_auth_models_Group</title>
+<path fill="none" stroke="#000000" d="M247.9543,-473.4609C263.2782,-439.3211 279.4953,-403.1913 291.1293,-377.2721"/>
+<ellipse fill="#000000" stroke="#000000" cx="246.2416" cy="-477.2768" rx="4" ry="4"/>
+<ellipse fill="#000000" stroke="#000000" cx="292.7973" cy="-373.5559" rx="4" ry="4"/>
+<text text-anchor="middle" x="281.7132" y="-451" font-family="Roboto" font-size="8.00" fill="#000000"> groups (user)</text>
+</g>
+<!-- django_contrib_sessions_base_session_AbstractBaseSession -->
+<g id="node7" class="node">
+<title>django_contrib_sessions_base_session_AbstractBaseSession</title>
+<polygon fill="#ffffff" stroke="transparent" points="439.5,-547.5 439.5,-597.5 569.5,-597.5 569.5,-547.5 439.5,-547.5"/>
+<polygon fill="#1b563f" stroke="transparent" points="440.5,-574.5 440.5,-596.5 568.5,-596.5 568.5,-574.5 440.5,-574.5"/>
+<text text-anchor="start" x="448.568" y="-583.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="456.568" y="-583.5" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    AbstractBaseSession    </text>
+<text text-anchor="start" x="442.5" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="450.5" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">expire_date</text>
+<text text-anchor="start" x="487.8144" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="502.2848" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="510.2848" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">DateTimeField</text>
+<text text-anchor="start" x="558.7152" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="442.2832" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="450.2832" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">session_data</text>
+<text text-anchor="start" x="490.7168" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="502.5" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="510.5" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">TextField</text>
+<text text-anchor="start" x="541.6064" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="439.5,-547.5 439.5,-597.5 569.5,-597.5 569.5,-547.5 439.5,-547.5"/>
+</g>
+<!-- django_contrib_sessions_models_Session -->
+<g id="node8" class="node">
+<title>django_contrib_sessions_models_Session</title>
+<polygon fill="#ffffff" stroke="transparent" points="439.5,-758.2 439.5,-829.2 569.5,-829.2 569.5,-758.2 439.5,-758.2"/>
+<polygon fill="#1b563f" stroke="transparent" points="440.5,-797.7 440.5,-827.7 568.5,-827.7 568.5,-797.7 440.5,-797.7"/>
+<text text-anchor="start" x="480.2225" y="-814.7" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="488.2225" y="-814.7" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    Session</text>
+<text text-anchor="start" x="451.929" y="-804.7" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">&lt;</text>
+<text text-anchor="start" x="457.568" y="-804.7" font-family="Roboto" font-weight="bold" font-style="italic" font-size="10.00" fill="#ffffff">AbstractBaseSession</text>
+<text text-anchor="start" x="541.432" y="-804.7" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">&gt;    </text>
+<text text-anchor="start" x="442.5" y="-789.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="450.5" y="-789.5" font-family="Roboto" font-weight="bold" font-style="italic" font-size="8.00" fill="#000000">session_key</text>
+<text text-anchor="start" x="489.1592" y="-789.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="502.5" y="-789.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="510.5" y="-789.5" font-family="Roboto" font-weight="bold" font-style="italic" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="542.4944" y="-789.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="442.5" y="-776.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="450.5" y="-776.5" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">expire_date</text>
+<text text-anchor="start" x="487.8144" y="-776.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="502.2848" y="-776.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="510.2848" y="-776.5" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">DateTimeField</text>
+<text text-anchor="start" x="558.7152" y="-776.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="442.2832" y="-763.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="450.2832" y="-763.5" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">session_data</text>
+<text text-anchor="start" x="490.7168" y="-763.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="502.5" y="-763.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="510.5" y="-763.5" font-family="Roboto" font-style="italic" font-size="8.00" fill="#000000">TextField</text>
+<text text-anchor="start" x="541.6064" y="-763.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="439.5,-758.2 439.5,-829.2 569.5,-829.2 569.5,-758.2 439.5,-758.2"/>
+</g>
+<!-- django_contrib_sessions_models_Session&#45;&gt;django_contrib_sessions_base_session_AbstractBaseSession -->
+<g id="edge10" class="edge">
+<title>django_contrib_sessions_models_Session-&gt;django_contrib_sessions_base_session_AbstractBaseSession</title>
+<path fill="none" stroke="#000000" d="M504.5,-754.1539C504.5,-713.9999 504.5,-652.1774 504.5,-612.0294"/>
+<polygon fill="none" stroke="#000000" points="508.0001,-611.8165 504.5,-601.8165 501.0001,-611.8166 508.0001,-611.8165"/>
+<text text-anchor="middle" x="522.2688" y="-694" font-family="Roboto" font-size="8.00" fill="#000000"> abstract</text>
+<text text-anchor="middle" x="522.2688" y="-684.4" font-family="Roboto" font-size="8.00" fill="#000000">inheritance</text>
+</g>
+<!-- blog_models_Category -->
+<g id="node9" class="node">
+<title>blog_models_Category</title>
+<polygon fill="#ffffff" stroke="transparent" points="302,-547.5 302,-597.5 405,-597.5 405,-547.5 302,-547.5"/>
+<polygon fill="#1b563f" stroke="transparent" points="303.5,-574.5 303.5,-596.5 404.5,-596.5 404.5,-574.5 303.5,-574.5"/>
+<text text-anchor="start" x="321.6725" y="-583.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="329.6725" y="-583.5" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    Category    </text>
+<text text-anchor="start" x="305.5" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="313.5" y="-566.3" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="319.7232" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="342.4992" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="350.4992" y="-566.3" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">BigAutoField</text>
+<text text-anchor="start" x="394.5008" y="-566.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="305.3372" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="313.3372" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">name</text>
+<text text-anchor="start" x="330.6628" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="342.5" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="350.5" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="382.4944" y="-553.3" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="302,-547.5 302,-597.5 405,-597.5 405,-547.5 302,-547.5"/>
+</g>
+<!-- blog_models_Post -->
+<g id="node10" class="node">
+<title>blog_models_Post</title>
+<polygon fill="#ffffff" stroke="transparent" points="234.5,-723.2 234.5,-864.2 358.5,-864.2 358.5,-723.2 234.5,-723.2"/>
+<polygon fill="#1b563f" stroke="transparent" points="235.5,-840.7 235.5,-862.7 357.5,-862.7 357.5,-840.7 235.5,-840.7"/>
+<text text-anchor="start" x="273.8865" y="-849.7" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="281.8865" y="-849.7" font-family="Roboto" font-weight="bold" font-size="10.00" fill="#ffffff">    Post    </text>
+<text text-anchor="start" x="237.5" y="-832.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-832.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">id</text>
+<text text-anchor="start" x="251.7232" y="-832.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-832.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-832.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">BigAutoField</text>
+<text text-anchor="start" x="340.5016" y="-832.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-819.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-819.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">author</text>
+<text text-anchor="start" x="265.9376" y="-819.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.1196" y="-819.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.1196" y="-819.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">ForeignKey (id)</text>
+<text text-anchor="start" x="347.8804" y="-819.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-806.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-806.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">category</text>
+<text text-anchor="start" x="273.04" y="-806.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.1196" y="-806.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.1196" y="-806.5" font-family="Roboto" font-weight="bold" font-size="8.00" fill="#000000">ForeignKey (id)</text>
+<text text-anchor="start" x="347.8804" y="-806.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-793.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-793.5" font-family="Roboto" font-size="8.00" fill="#000000">content</text>
+<text text-anchor="start" x="269.0488" y="-793.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-793.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-793.5" font-family="Roboto" font-size="8.00" fill="#000000">TextField</text>
+<text text-anchor="start" x="327.6064" y="-793.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-780.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-780.5" font-family="Roboto" font-size="8.00" fill="#000000">excerpt</text>
+<text text-anchor="start" x="269.04" y="-780.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-780.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-780.5" font-family="Roboto" font-size="8.00" fill="#000000">TextField</text>
+<text text-anchor="start" x="327.6064" y="-780.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.4456" y="-767.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.4456" y="-767.5" font-family="Roboto" font-size="8.00" fill="#000000">published</text>
+<text text-anchor="start" x="276.5544" y="-767.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-767.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-767.5" font-family="Roboto" font-size="8.00" fill="#000000">DateTimeField</text>
+<text text-anchor="start" x="344.9304" y="-767.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-754.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-754.5" font-family="Roboto" font-size="8.00" fill="#000000">slug</text>
+<text text-anchor="start" x="258.8344" y="-754.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-754.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-754.5" font-family="Roboto" font-size="8.00" fill="#000000">SlugField</text>
+<text text-anchor="start" x="327.6152" y="-754.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-741.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-741.5" font-family="Roboto" font-size="8.00" fill="#000000">status</text>
+<text text-anchor="start" x="263.72" y="-741.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-741.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-741.5" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="328.4944" y="-741.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="237.5" y="-728.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="245.5" y="-728.5" font-family="Roboto" font-size="8.00" fill="#000000">title</text>
+<text text-anchor="start" x="257.944" y="-728.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="288.5" y="-728.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<text text-anchor="start" x="296.5" y="-728.5" font-family="Roboto" font-size="8.00" fill="#000000">CharField</text>
+<text text-anchor="start" x="328.4944" y="-728.5" font-family="Roboto" font-size="8.00" fill="#000000">    </text>
+<polygon fill="none" stroke="#000000" points="234.5,-723.2 234.5,-864.2 358.5,-864.2 358.5,-723.2 234.5,-723.2"/>
+</g>
+<!-- blog_models_Post&#45;&gt;django_contrib_auth_models_User -->
+<g id="edge12" class="edge">
+<title>blog_models_Post-&gt;django_contrib_auth_models_User</title>
+<path fill="none" stroke="#000000" d="M261.9754,-711.5834C255.4606,-696.088 248.6092,-679.7921 241.982,-664.0291"/>
+<ellipse fill="#000000" stroke="#000000" cx="263.5938" cy="-715.4328" rx="4" ry="4"/>
+<text text-anchor="middle" x="288.7164" y="-689.2" font-family="Roboto" font-size="8.00" fill="#000000"> author (blog_posts)</text>
+</g>
+<!-- blog_models_Post&#45;&gt;blog_models_Category -->
+<g id="edge11" class="edge">
+<title>blog_models_Post-&gt;blog_models_Category</title>
+<path fill="none" stroke="#000000" d="M325.701,-711.1579C326.6818,-707.8057 327.6196,-704.4771 328.5,-701.2 337.5651,-667.4577 344.7474,-627.9081 349.0457,-601.6469"/>
+<ellipse fill="#000000" stroke="#000000" cx="324.4925" cy="-715.1787" rx="4" ry="4"/>
+<text text-anchor="middle" x="358.6004" y="-689.2" font-family="Roboto" font-size="8.00" fill="#000000"> category (post)</text>
+</g>
+</g>
+</svg>

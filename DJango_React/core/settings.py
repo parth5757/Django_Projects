@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # External Apps
+    'django_extensions',
+    'rest_framework',
     # Internal Apps
     "blog",
     "blog_api"
