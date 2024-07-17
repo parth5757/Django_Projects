@@ -1,9 +1,0 @@
-virtualenv env
-env/scripts/activate
-python manage.py runserver
-python manage.py createsuperuser
-pip install coverage
-coverage run --omit='*/env/*' manage.py test
-coverage html
-pip install djangorestframework
-pip install djangorestframework
