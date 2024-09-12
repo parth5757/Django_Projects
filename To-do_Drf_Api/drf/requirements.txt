@@ -1,0 +1,10 @@
+Django
+celery
+django-celery-beat
+django-celery-results
+django-rest-passwordreset
+djangorestframework
+djangorestframework-simplejwt
+drf-spectacular
+python-environ
+redis

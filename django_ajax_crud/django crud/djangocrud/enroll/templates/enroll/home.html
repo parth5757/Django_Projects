@@ -23,7 +23,7 @@
           </h4>
           <form action="" method="post">
             {% csrf_token %}
-            <input type="hidden" name="stuid" id="stuid" />
+            <input type="hidden", value="{{ stud.id }}" name="stuid" id="stuid" />
             {{form.as_p}}
             <input id="btnsave" type="button" value="Save" class="btn btn-success" />
           </form>

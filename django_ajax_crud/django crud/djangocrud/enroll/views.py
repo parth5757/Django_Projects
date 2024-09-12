@@ -38,7 +38,7 @@ def save_data(request):
     if request.method == "POST":
         form = StudentRegistration(request.POST)
         if form.is_valid():
-            sid = request.POST.get()
+            sid = request.POST['stuid']
             name = request.POST['name']
             email = request.POST['email']
             password = request.POST['password']

@@ -1,0 +1,1 @@
+# This the some of django project that begainer 
