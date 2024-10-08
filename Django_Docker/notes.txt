@@ -1,0 +1,16 @@
+this doc file store the notes of django with docker
+https://docs.google.com/document/d/1BU8FHan6if1sj7b5i2BhFCtZURN1czniX5PPgk13W9M/edit
+
+githhub repo
+https://github.com/parth5757/Django_Projects/tree/main/DJango_Docker
+
+
+Commands as follow
+
+django-admin startproject core .
+
+
+Commands for docker
+
+docker build --tag python-django .
+docker run --publish 8000:8000 python-django
