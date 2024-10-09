@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 
 # function    Run once per test
 # class       Run once per class of tests
@@ -16,5 +16,5 @@
 #     # assert 1 == 2
 #     assert 1 == 1
 
-# def test_example1():
-#     assert 1 == 1
+def test_example1():
+    assert 1 == 1

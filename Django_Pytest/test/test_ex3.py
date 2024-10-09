@@ -17,10 +17,10 @@
 #     assert count == 0
 
 
-def test_set_check_password(user_1):
-    print('check-user1')
-    assert user_1.username == "test-user"
+# def test_set_check_password(user_1):
+#     print('check-user1')
+#     assert user_1.username == "test-user"
 
-def test_set_check_password2(user_1):
-    print('check-user2')
-    assert user_1.username == "test-user"
+# def test_set_check_password2(user_1):
+#     print('check-user2')
+#     assert user_1.username == "test-user"

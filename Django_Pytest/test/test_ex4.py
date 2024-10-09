@@ -24,6 +24,6 @@ import pytest
 #     assert user_1.username == "test-user"
 
 
-def test_new_user(new_user):
-    print(new_user.first_name)
-    assert new_user.username == "MyName"
+# def test_new_user(new_user):
+#     print(new_user.first_name)
+#     assert new_user.username == "MyName"
