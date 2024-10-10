@@ -68,6 +68,15 @@ What you know from here
 * A function that runs before/after each test function to which it is applied (runs before the Act action)
 * Used to feed data to the test, such as database connection URLs or input data
 
+* fixture are applied in arrange phase
+* fixtures are function
+* Run before/after each test function to which the fixture is applied
+
+why Pytest fixtures are used
+- Fixtures are used to feed data to the tests such as database connections, URLs to test and input data.
+
+
+
 ### Fixture Scopes
 
 * `function`: Run once per test
@@ -81,3 +90,5 @@ What you know from here
 * `pytest -s`: Run pytest with output
 * `pytest`: Simply run pytest
 * `pytest -rP`: Run pytest with Django models
+
+
