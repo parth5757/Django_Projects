@@ -1,3 +1,4 @@
+# old code
 # import pytest
 
 # from django.contrib.auth.models import User
@@ -24,3 +25,13 @@
 # def test_set_check_password2(user_1):
 #     print('check-user2')
 #     assert user_1.username == "test-user"
+
+
+import pytest
+
+from django.contrib.auth.models import User
+
+@pytest.mark.django_db
+def test_user_create():
+    User.objects.create_user('test', 'test@test.com')
+    assert User.objects.count() == 1
