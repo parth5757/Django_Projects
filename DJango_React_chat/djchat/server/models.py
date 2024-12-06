@@ -1,33 +1,33 @@
-from django.conf import settings
 from django.db import models
+from django.conf import settings
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    description  = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
 
-class server(models.Model):
+class Server(models.Model):
     name = models.CharField(max_length=100)
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="server_owner")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="server_category")
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="server_owner") # one to one relationship (one server must have only one owner)
+    category = models.ForeignKey(Category, on_delete= models.CASCADE, related_name="server_category")
     description = models.CharField(max_length=250, null=True)
-    member = models.ManyToManyField(settings.AUTH_USER_MODEL)
-
+    member = models.ManyToManyField(settings.AUTH_USER_MODEL) # many to many relationship (one server have many members and one member have many server)
 
     def __str__(self):
         return self.name
-    
+
 class Channel(models.Model):
     name = models.CharField(max_length=100)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="channel_owner")
     topic = models.CharField(max_length=100)
-    server = models.ForeignKey(server, on_delete=models.CASCADE, related_name="channel_server")
-
+    server = models.ForeignKey(Server, on_delete=models.CASCADE, related_name="channel_server")
+    
     def save(self, *args, **kwargs):
         self.name = self.name.lower()
         super(Channel, self).save(*args, **kwargs)
 
-    def __str__(self):
+    def __srt__(self):
         return self.name
+
