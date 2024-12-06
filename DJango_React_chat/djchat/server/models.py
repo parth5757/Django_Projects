@@ -12,7 +12,7 @@ class Server(models.Model):
     name = models.CharField(max_length=100)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="server_owner") # one to one relationship (one server must have only one owner)
     category = models.ForeignKey(Category, on_delete= models.CASCADE, related_name="server_category")
-    description = models.CharField(max_length=250, null=True)
+    description = models.CharField(max_length=250, blank=True, null=True)
     member = models.ManyToManyField(settings.AUTH_USER_MODEL) # many to many relationship (one server have many members and one member have many server)
 
     def __str__(self):
@@ -31,3 +31,4 @@ class Channel(models.Model):
     def __srt__(self):
         return self.name
 
+    
