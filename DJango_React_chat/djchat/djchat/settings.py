@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     # Internal Apps
     "account",
     "server",
-    # External Apps
+    # External 
+    "rest_framework",
     'drf_spectacular', 
 ]
 
